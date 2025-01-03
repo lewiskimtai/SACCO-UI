@@ -5,6 +5,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   TextInput,
+  Platform,
 } from "react-native";
 import { SubtlePrism } from "@/constants/Icons";
 import Colors from "@/constants/Colors";
@@ -83,8 +84,11 @@ const SignIn = () => {
             <TouchableOpacity>
               <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
             </TouchableOpacity>
+
             <TouchableOpacity style={styles.loginButton}>
-              <Text style={styles.loginText}>Login</Text>
+              <Link href={"/(tabs)/home"}>
+                <Text style={styles.loginText}>Login</Text>
+              </Link>
             </TouchableOpacity>
             <View style={styles.footerContainer}>
               <Text style={styles.accountText}>Dont have an account?</Text>
@@ -125,7 +129,7 @@ const styles = StyleSheet.create({
     color: Colors.white,
   },
   formContainer: {
-    marginTop: 180,
+    marginTop: 160,
   },
   inputContainer: {
     flexDirection: "row",
@@ -155,6 +159,14 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.bluee,
     borderRadius: 100,
     marginTop: 20,
+    paddingVertical: 10,
+    borderWidth: 0.2,
+    borderColor: Colors.bluee,
+    shadowColor: Colors.black,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
   },
   loginText: {
     color: Colors.white,

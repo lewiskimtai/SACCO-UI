@@ -5,7 +5,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   TextInput,
-  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import { SubtlePrism } from "@/constants/Icons";
 import Colors from "@/constants/Colors";
@@ -43,71 +43,71 @@ const SignUp = () => {
           </View>
 
           {/* SIGN UP FORM */}
-            <View style={styles.formContainer}>
-              <View style={styles.inputContainer}>
-                <Ionicons
-                  name="mail-outline"
-                  size={30}
-                  style={{ color: Colors.white }}
-                />
-                <TextInput
-                  style={styles.textInput}
-                  placeholder="Enter your email"
-                  placeholderTextColor={Colors.grey}
-                  keyboardType="email-address"
-                />
-              </View>
-              <View style={styles.inputContainer}>
-                <SimpleLineIcons
-                  name="screen-smartphone"
-                  size={30}
-                  style={{ color: Colors.white }}
-                />
-                <TextInput
-                  style={styles.textInput}
-                  placeholder="Enter your phone number"
-                  placeholderTextColor={Colors.grey}
-                  keyboardType={"phone-pad"}
-                />
-              </View>
-
-              <View style={styles.inputContainer}>
-                <SimpleLineIcons
-                  name="lock"
-                  size={30}
-                  style={{ color: Colors.white }}
-                />
-                  <TextInput
-                    style={styles.textInput}
-                    placeholder="Enter your password"
-                    placeholderTextColor={Colors.grey}
-                    secureTextEntry={secureEntry}
-                  />
-                <TouchableOpacity
-                  onPress={() => {
-                    setSecureEntry((prev) => !prev);
-                  }}
-                >
-                  <SimpleLineIcons
-                    name="eye"
-                    size={20}
-                    style={{ color: Colors.grey }}
-                  />
-                </TouchableOpacity>
-              </View>
-              <TouchableOpacity>
-                <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.loginButton}>
-                <Text style={styles.loginText}>Sign in</Text>
-              </TouchableOpacity>
-              <View style={styles.footerContainer}>
-                <Text style={styles.accountText}>Already have an account?</Text>
-                <Link href={"/signin"}>
-                  <Text style={styles.signupText}>Login</Text>
-                </Link>
-              </View>
+          <View style={styles.formContainer}>
+            <View style={styles.inputContainer}>
+              <Ionicons
+                name="mail-outline"
+                size={30}
+                style={{ color: Colors.white }}
+              />
+              <TextInput
+                style={styles.textInput}
+                placeholder="Enter your email"
+                placeholderTextColor={Colors.grey}
+                keyboardType="email-address"
+              />
             </View>
+            <View style={styles.inputContainer}>
+              <SimpleLineIcons
+                name="screen-smartphone"
+                size={30}
+                style={{ color: Colors.white }}
+              />
+              <TextInput
+                style={styles.textInput}
+                placeholder="Enter your phone number"
+                placeholderTextColor={Colors.grey}
+                keyboardType={"phone-pad"}
+              />
+            </View>
+
+            <View style={styles.inputContainer}>
+              <SimpleLineIcons
+                name="lock"
+                size={30}
+                style={{ color: Colors.white }}
+              />
+              <TextInput
+                style={styles.textInput}
+                placeholder="Enter your password"
+                placeholderTextColor={Colors.grey}
+                secureTextEntry={secureEntry}
+              />
+              <TouchableOpacity
+                onPress={() => {
+                  setSecureEntry((prev) => !prev);
+                }}
+              >
+                <SimpleLineIcons
+                  name="eye"
+                  size={20}
+                  style={{ color: Colors.grey }}
+                />
+              </TouchableOpacity>
+            </View>
+            <TouchableOpacity>
+              <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.loginButton}>
+              <Text style={styles.loginText}>Sign in</Text>
+            </TouchableOpacity>
+            <View style={styles.footerContainer}>
+              <Text style={styles.accountText}>Already have an account?</Text>
+              <Link href={"/signin"}>
+                <Text style={styles.signupText}>Login</Text>
+              </Link>
+            </View>
+          </View>
         </View>
       </SafeAreaView>
     </ImageBackground>
@@ -170,6 +170,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.bluee,
     borderRadius: 100,
     marginTop: 20,
+    borderWidth: 0.2,
+    borderColor: Colors.bluee,
+    shadowColor: Colors.black,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
   },
   loginText: {
     color: Colors.white,

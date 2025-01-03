@@ -95,10 +95,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 10,
     height: 100,
-    marginVertical: 565,
+    marginVertical: 550,
     flexDirection: "row",
-  
-    borderColor: Colors.bluee,
   },
   text: {
     fontSize: 30,

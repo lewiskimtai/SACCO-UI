@@ -1,32 +1,48 @@
-import { useFonts } from "expo-font";
 import { Tabs } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
-import "react-native-reanimated";
+import React from "react";
+import { Ionicons } from "@expo/vector-icons";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { TabBar } from "@/componets/TabBar";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 
-SplashScreen.preventAutoHideAsync();
 
-export default function TabsLayout() {
-  const [loaded] = useFonts({
-    SpaceMono: require("../../assets/fonts/SpaceMono-Regular.ttf"),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
+function Layout() {
 
   return (
-    <Tabs>
-      /* Include index.tsx as a standalone screen */
-      <Tabs.Screen name="home" options={{ headerShown: false }} />
+    <Tabs tabBar={(props) => <TabBar {...props} />}>
+      <Tabs.Screen
+        name="deposit"
+        options={{
+          headerShown: false,
+          title: "Deposit",
+          tabBarIcon: ({ color, size, focused }) => (
+            <MaterialCommunityIcons name="cash-plus" size={35} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="home"
+        options={{
+          headerShown: false,
+          title: "Home",
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name="home" size={35} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="withdraw"
+        options={{
+          headerShown: false,
+          title: "Withdraw",
+          tabBarIcon: ({ color, size, focused }) => (
+            <MaterialCommunityIcons name="cash-minus" size={35} color={color} />
+          ),
+        }}
+      />
     </Tabs>
+  
   );
 }
+
+export default Layout;

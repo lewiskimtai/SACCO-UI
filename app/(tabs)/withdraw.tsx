@@ -6,13 +6,13 @@ import { SubtlePrism } from "@/constants/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 
-const Home = () => {
+const Withdraw = () => {
   
 
   return (
     <ImageBackground source={SubtlePrism} style={styles.background}>
       <SafeAreaView style={styles.safeAreaView}>
-        <Text>Home</Text>
+        <Text>Withraw</Text>
       </SafeAreaView>
     </ImageBackground>
   );
@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Withdraw;
