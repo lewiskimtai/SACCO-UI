@@ -1,15 +1,16 @@
 import { Tabs } from "expo-router";
-import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { TabBar } from "@/componets/TabBar";
+import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+import { JSX } from "react/jsx-runtime";
 
 
 
 function Layout() {
 
   return (
-    <Tabs tabBar={(props) => <TabBar {...props} />}>
+    <Tabs tabBar={(props: JSX.IntrinsicAttributes & BottomTabBarProps) => <TabBar {...props} />}>
       <Tabs.Screen
         name="deposit"
         options={{
@@ -23,7 +24,7 @@ function Layout() {
       <Tabs.Screen
         name="home"
         options={{
-          headerShown: true,
+          headerShown: false,
           title: "Home",
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons name="home" size={35} color={color} />
