@@ -23,7 +23,7 @@ function Layout() {
       <Tabs.Screen
         name="home"
         options={{
-          headerShown: false,
+          headerShown: true,
           title: "Home",
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons name="home" size={35} color={color} />
