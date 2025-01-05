@@ -9,11 +9,12 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "@/constants/Colors";
 import { StatusBar } from "expo-status-bar";
+import Crbgraph from "@/componets/Crbgraph";
 
 const Home = () => {
   return (
     <>
-      <StatusBar style='dark' />
+      <StatusBar style="dark" />
       <SafeAreaView style={styles.safeAreaView}>
         <View style={styles.container}>
           <View style={styles.headerView}>
@@ -39,7 +40,6 @@ const Home = () => {
             style={{
               flexDirection: "row",
               justifyContent: "space-between",
-              alignItems: "center",
             }}
           >
             <View style={{ gap: 10 }}>
@@ -52,8 +52,9 @@ const Home = () => {
                 <Text style={{ fontSize: 22, fontWeight: "400" }}>00</Text>
               </Text>
             </View>
-            <View>
-              <Text>Pie Chart</Text>
+            <View style={{ flexDirection: "column", alignItems: "center" }}>
+              <Text style={{ fontSize: 18, fontWeight: "700" }}>CRB SCORE</Text>
+              <Crbgraph />
             </View>
           </View>
         </View>
