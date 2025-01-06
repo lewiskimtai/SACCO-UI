@@ -56,47 +56,42 @@ const Crbgraph = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <PieChart
-        data={pieData}
-        donut
-        showGradient
-        sectionAutoFocus
-        semiCircle
-        radius={70}
-        innerRadius={55}
-        innerCircleColor={Colors.white}
-        centerLabelComponent={() => {
-          return (
-            <View style={{ justifyContent: "center", alignItems: "center" }}>
-              <Text
-                style={{
-                  fontSize: 22,
-                  color: "black",
-                  fontWeight: "900",
-                }}
-              >
-                47%
-              </Text>
-              <Animated.View style={[styles.needleContainer, needleStyle]}>
-                <Image
-                  source={require("../assets/images/download.png")} // Replace with your needle image path
-                  style={styles.needleImage}
-                />
-              </Animated.View>
-            </View>
-          );
-        }}
-      />
-    </View>
+    <PieChart
+      data={pieData}
+      donut
+      showGradient
+      sectionAutoFocus
+      semiCircle
+      radius={70}
+      innerRadius={55}
+      innerCircleColor="#DEDEDE"
+      centerLabelComponent={() => {
+        return (
+          <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <Text
+              style={{
+                fontSize: 22,
+                color: "black",
+                fontWeight: "900",
+              }}
+            >
+              47%
+            </Text>
+            <Animated.View style={[styles.needleContainer, needleStyle]}>
+              <Image
+                source={require("../assets/images/download.png")} // Replace with your needle image path
+                style={styles.needleImage}
+              />
+            </Animated.View>
+          </View>
+        );
+      }}
+    />
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    paddingVertical: 5,
-  },
+  
   needleContainer: {
     position: "absolute",
   },

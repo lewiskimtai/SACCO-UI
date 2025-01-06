@@ -10,6 +10,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "@/constants/Colors";
 import { StatusBar } from "expo-status-bar";
 import Crbgraph from "@/componets/Crbgraph";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const Home = () => {
   return (
@@ -42,17 +43,31 @@ const Home = () => {
               justifyContent: "space-between",
             }}
           >
-            <View style={{ gap: 10 }}>
-              <Text style={styles.balanceText}>
-                Wallet <Text style={{ fontWeight: "900" }}>Balance</Text>
-              </Text>
-              <Text style={styles.balanceDigits}>
-                <Text style={{ fontSize: 20, fontWeight: "400" }}>UGX </Text>
-                500,000.
-                <Text style={{ fontSize: 22, fontWeight: "400" }}>00</Text>
+            <View
+              style={styles.walletbalanceWrapper}
+            >
+              <View style={{ flexDirection: "row", }}>
+                <Ionicons
+                  name="wallet"
+                  size={24}
+                  style={{ color: Colors.black }}
+                />
+                <Text style={{ fontSize: 20, marginLeft: 10 }}>
+                  Wallet <Text style={{ fontWeight: "bold" }}>Balance</Text>
+                </Text>
+              </View>
+
+              <Text style={{ fontSize: 22, fontWeight: "800" }}>UGX</Text>
+              <Text>
+                <Text style={{ fontSize: 30, fontWeight: "900" }}>
+                  500,000.
+                </Text>
+                <Text style={{ fontSize: 24 }}>00</Text>
               </Text>
             </View>
-            <View style={{ flexDirection: "column", alignItems: "center" }}>
+            <View
+              style={styles.crbgraphWrapper}
+            >
               <Text style={{ fontSize: 18, fontWeight: "700" }}>CRB SCORE</Text>
               <Crbgraph />
             </View>
@@ -79,19 +94,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    height: 90,
+    height: 110,
   },
   profileHolder: {
     flexDirection: "row",
     alignItems: "center",
   },
   profileImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
   },
   hiName: {
-    fontSize: 16,
+    fontSize: 20,
     color: Colors.grey,
   },
   loanrequestButton: {
@@ -107,16 +122,40 @@ const styles = StyleSheet.create({
     elevation: Platform.OS === "android" ? 5 : 0,
   },
   loanRequest: {
-    fontSize: 14,
+    fontSize: 17,
     fontWeight: "700",
     color: Colors.white,
   },
-  balanceText: {
-    fontSize: 18,
+  walletbalanceWrapper: {
+    gap: 10,
+    backgroundColor: "#DEDEDE",
+    borderWidth: 1,
+    borderColor: "#DEDEDE",
+    width: 180,
+    paddingLeft: 10,
+    paddingTop: 10,
+    borderRadius: 10,
+    shadowColor: Colors.grey,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
   },
-  balanceDigits: {
-    fontSize: 25,
-    fontWeight: "700",
+  crbgraphWrapper: {
+    marginLeft: 10,
+    flex: 1,
+    alignItems: "center",
+    backgroundColor: "#DEDEDE",
+    borderWidth: 1,
+    borderColor: "#DEDEDE",
+    width: 180,
+    padding: 10,
+    borderRadius: 10,
+    shadowColor: Colors.grey,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
   },
 });
 
