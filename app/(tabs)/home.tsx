@@ -5,14 +5,56 @@ import {
   Image,
   TouchableOpacity,
   Platform,
+  Modal,
+  Dimensions,
+  TouchableWithoutFeedback,
+  TextInput,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "@/constants/Colors";
 import { StatusBar } from "expo-status-bar";
 import Crbgraph from "@/componets/Crbgraph";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useState } from "react";
+import * as Notifications from "expo-notifications";
+import * as Permissions from "expo-permissions";
 
 const Home = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [amount, setAmount] = useState("");
+  const [withdrawalSuccess, setWithdrawalSuccess] = useState(false);
+
+  const handleWithdrawPress = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+    setAmount("");
+    setWithdrawalSuccess(false); // Reset success state
+  };
+
+  const handleWithdraw = async () => {
+    try {
+      // Simulate successful withdrawal (replace with your actual API call)
+      // ... your withdrawal API call logic here ...
+      // Assuming the API call is successful
+      setWithdrawalSuccess(true);
+
+      // No need to request notification permissions here (commented out)
+      // const { status: existingStatus } = await Permissions.getAsync(
+      //   Permissions.NOTIFICATIONS
+      // );
+      // ... rest of notification logic (commented out)
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle errors, e.g., display an error message to the user
+      alert("Withdrawal failed. Please try again later.");
+    }
+  };
+
+  const windowWidth = Dimensions.get("window").width;
+  const windowHeight = Dimensions.get("window").height;
   return (
     <>
       <StatusBar style="dark" />
@@ -43,10 +85,8 @@ const Home = () => {
               justifyContent: "space-between",
             }}
           >
-            <View
-              style={styles.walletbalanceWrapper}
-            >
-              <View style={{ flexDirection: "row", }}>
+            <View style={styles.walletbalanceWrapper}>
+              <View style={{ flexDirection: "row" }}>
                 <Ionicons
                   name="wallet"
                   size={24}
@@ -62,16 +102,73 @@ const Home = () => {
                 <Text style={{ fontSize: 30, fontWeight: "900" }}>
                   500,000.
                 </Text>
-                <Text style={{ fontSize: 24 }}>00</Text>
+                <Text style={{ fontSize: 21 }}>00</Text>
               </Text>
             </View>
-            <View
-              style={styles.crbgraphWrapper}
-            >
+            <View style={styles.crbgraphWrapper}>
               <Text style={{ fontSize: 18, fontWeight: "700" }}>CRB SCORE</Text>
               <Crbgraph />
             </View>
           </View>
+          <TouchableWithoutFeedback onPress={handleCloseModal}>
+            <View style={{ marginTop: 20, width: 90 }}>
+              <TouchableOpacity
+                onPress={handleWithdrawPress}
+                style={styles.withdrawButton}
+              >
+                <Text style={styles.withdrawRequest}>Withdraw</Text>
+              </TouchableOpacity>
+
+              <Modal
+                animationType="slide"
+                transparent={true}
+                visible={isModalVisible}
+                onRequestClose={handleCloseModal}
+              >
+                <TouchableWithoutFeedback onPress={handleCloseModal}>
+                  <View style={styles.modalContainer}>
+                    <View
+                      style={[
+                        styles.modalView,
+                        {
+                          width: windowWidth * 0.8,
+                          height: windowHeight * 0.4,
+                        },
+                      ]}
+                    >
+                      {withdrawalSuccess ? (
+                        <View>
+                          <Text style={styles.successMessage}>
+                            Withdrawal Successful!
+                          </Text>
+                          {/* No notification functionality here */}
+                        </View>
+                      ) : (
+                        <>
+                          <Text style={styles.modalTitle}>
+                            Enter Withdrawal Amount
+                          </Text>
+                          <TextInput
+                            style={styles.input}
+                            keyboardType="numeric"
+                            placeholder="Enter amount"
+                            value={amount}
+                            onChangeText={setAmount}
+                          />
+                          <TouchableOpacity
+                            style={styles.withdrawButtonModal}
+                            onPress={handleWithdraw}
+                          >
+                            <Text style={styles.withdrawRequest}>Withdraw</Text>
+                          </TouchableOpacity>
+                        </>
+                      )}
+                    </View>
+                  </View>
+                </TouchableWithoutFeedback>
+              </Modal>
+            </View>
+          </TouchableWithoutFeedback>
         </View>
       </SafeAreaView>
     </>
@@ -128,9 +225,9 @@ const styles = StyleSheet.create({
   },
   walletbalanceWrapper: {
     gap: 10,
-    backgroundColor: "#DEDEDE",
+    backgroundColor: Colors.white,
     borderWidth: 1,
-    borderColor: "#DEDEDE",
+    borderColor: Colors.white,
     width: 180,
     paddingLeft: 10,
     paddingTop: 10,
@@ -145,9 +242,9 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#DEDEDE",
+    backgroundColor: Colors.white,
     borderWidth: 1,
-    borderColor: "#DEDEDE",
+    borderColor: Colors.white,
     width: 180,
     padding: 10,
     borderRadius: 10,
@@ -156,6 +253,66 @@ const styles = StyleSheet.create({
     shadowRadius: 10, // Reduced shadowRadius
     shadowOpacity: 0.3, // Reduced shadowOpacity
     elevation: Platform.OS === "android" ? 5 : 0,
+  },
+  withdrawButton: {
+    backgroundColor: Colors.bluee,
+    borderWidth: 1,
+    borderColor: Colors.bluee,
+    padding: 8,
+    borderRadius: 10,
+    shadowColor: Colors.black,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
+  },
+  withdrawRequest: {
+    fontSize: 17,
+    fontWeight: "700",
+    color: Colors.white,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalView: {
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 20,
+    width: "80%",
+  },
+  withdrawButtonModal: {
+    backgroundColor: "blue",
+    padding: 15,
+    borderRadius: 5,
+  },
+  successMessage: {
+    color: "green",
+    fontWeight: "bold",
+    marginBottom: 10,
   },
 });
 

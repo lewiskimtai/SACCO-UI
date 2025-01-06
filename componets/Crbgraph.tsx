@@ -64,7 +64,7 @@ const Crbgraph = () => {
       semiCircle
       radius={70}
       innerRadius={55}
-      innerCircleColor="#DEDEDE"
+      innerCircleColor={Colors.white}
       centerLabelComponent={() => {
         return (
           <View style={{ justifyContent: "center", alignItems: "center" }}>
