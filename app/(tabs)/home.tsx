@@ -146,7 +146,7 @@ const Home = () => {
           <View
             style={{
               flexDirection: "row",
-              gap: 10,
+              gap: 4,
             }}
           >
             <View>
@@ -226,7 +226,7 @@ const Home = () => {
             </View>
             <View>
               <TouchableWithoutFeedback onPress={handleCloseModal}>
-                <View style={{ marginTop: 10, width: 80 }}>
+                <View style={{ marginTop: 10, width: 90}}>
                   <TouchableOpacity
                     onPress={handleWithdrawPress}
                     style={styles.withdrawButton}
@@ -386,6 +386,7 @@ const styles = StyleSheet.create({
     elevation: Platform.OS === "android" ? 5 : 0,
   },
   withdrawButton: {
+    paddingLeft: 10,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: Colors.bluee,
@@ -400,7 +401,7 @@ const styles = StyleSheet.create({
     elevation: Platform.OS === "android" ? 5 : 0,
   },
   withdrawRequest: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: "700",
     color: Colors.white,
   },
