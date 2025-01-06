@@ -21,17 +21,31 @@ import * as Permissions from "expo-permissions";
 
 const Home = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  
+  const [isDespositModalVisible, setIsDespositModalVisible] = useState(false);
   const [amount, setAmount] = useState("");
   const [withdrawalSuccess, setWithdrawalSuccess] = useState(false);
+  
+  const [despositSuccess, setDespositSuccess] = useState(false);
 
   const handleWithdrawPress = () => {
     setIsModalVisible(true);
+  };
+
+  const handleDespositPress = () => {
+    setIsDespositModalVisible(true);
   };
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
     setAmount("");
     setWithdrawalSuccess(false); // Reset success state
+  };
+
+  const handleCloseDepositModal = () => {
+    setIsDespositModalVisible(false);
+    setAmount("");
+    setDespositSuccess(false); // Reset success state
   };
 
   const handleWithdraw = async () => {
@@ -50,6 +64,25 @@ const Home = () => {
       console.error("Error:", error);
       // Handle errors, e.g., display an error message to the user
       alert("Withdrawal failed. Please try again later.");
+    }
+  };
+
+  const handleDeposit = async () => {
+    try {
+      // Simulate successful withdrawal (replace with your actual API call)
+      // ... your withdrawal API call logic here ...
+      // Assuming the API call is successful
+      setDespositSuccess(true);
+
+      // No need to request notification permissions here (commented out)
+      // const { status: existingStatus } = await Permissions.getAsync(
+      //   Permissions.NOTIFICATIONS
+      // );
+      // ... rest of notification logic (commented out)
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle errors, e.g., display an error message to the user
+      alert("Deposit failed. Please try again later.");
     }
   };
 
@@ -110,65 +143,163 @@ const Home = () => {
               <Crbgraph />
             </View>
           </View>
-          <TouchableWithoutFeedback onPress={handleCloseModal}>
-            <View style={{ marginTop: 20, width: 90 }}>
-              <TouchableOpacity
-                onPress={handleWithdrawPress}
-                style={styles.withdrawButton}
-              >
-                <Text style={styles.withdrawRequest}>Withdraw</Text>
-              </TouchableOpacity>
+          <View
+            style={{
+              flexDirection: "row",
+              gap: 10,
+            }}
+          >
+            <View>
+              <TouchableWithoutFeedback onPress={handleCloseDepositModal}>
+                <View style={{ marginTop: 10, width: 80 }}>
+                  <TouchableOpacity
+                    onPress={handleDespositPress}
+                    style={styles.withdrawButton}
+                  >
+                    <Text style={styles.withdrawRequest}>Deposit</Text>
+                  </TouchableOpacity>
 
-              <Modal
-                animationType="slide"
-                transparent={true}
-                visible={isModalVisible}
-                onRequestClose={handleCloseModal}
-              >
-                <TouchableWithoutFeedback onPress={handleCloseModal}>
-                  <View style={styles.modalContainer}>
-                    <View
-                      style={[
-                        styles.modalView,
-                        {
-                          width: windowWidth * 0.8,
-                          height: windowHeight * 0.4,
-                        },
-                      ]}
-                    >
-                      {withdrawalSuccess ? (
-                        <View>
-                          <Text style={styles.successMessage}>
-                            Withdrawal Successful!
-                          </Text>
-                          {/* No notification functionality here */}
+                  <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={isDespositModalVisible}
+                  >
+                    <TouchableWithoutFeedback onPress={handleCloseDepositModal}>
+                      <View style={styles.modalContainer}>
+                        {/* Backdrop component to close modal on press outside */}
+                        <TouchableOpacity
+                          style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            opacity: 0.5,
+                          }}
+                          onPress={handleCloseDepositModal}
+                        />
+
+                        <View
+                          style={[
+                            styles.modalView,
+                            {
+                              width: windowWidth * 0.8,
+                              height: windowHeight * 0.4,
+                            },
+                          ]}
+                        >
+                          {despositSuccess ? (
+                            <View>
+                              <Text style={styles.successMessage}>
+                                Deposit Successful!
+                              </Text>
+                              {/* No notification functionality here */}
+                            </View>
+                          ) : (
+                            <>
+                              <Text style={styles.modalTitle}>
+                                Enter Deposit Amount
+                              </Text>
+                              <TextInput
+                                style={styles.input}
+                                keyboardType="numeric"
+                                placeholder="Enter amount"
+                                value={amount}
+                                onChangeText={setAmount}
+                              />
+                              <TouchableOpacity
+                                style={styles.withdrawButtonModal}
+                                onPress={handleDeposit}
+                              >
+                                <Text style={styles.withdrawRequest}>
+                                  Deposit
+                                </Text>
+                              </TouchableOpacity>
+                            </>
+                          )}
                         </View>
-                      ) : (
-                        <>
-                          <Text style={styles.modalTitle}>
-                            Enter Withdrawal Amount
-                          </Text>
-                          <TextInput
-                            style={styles.input}
-                            keyboardType="numeric"
-                            placeholder="Enter amount"
-                            value={amount}
-                            onChangeText={setAmount}
-                          />
-                          <TouchableOpacity
-                            style={styles.withdrawButtonModal}
-                            onPress={handleWithdraw}
-                          >
-                            <Text style={styles.withdrawRequest}>Withdraw</Text>
-                          </TouchableOpacity>
-                        </>
-                      )}
-                    </View>
-                  </View>
-                </TouchableWithoutFeedback>
-              </Modal>
+                      </View>
+                    </TouchableWithoutFeedback>
+                  </Modal>
+                </View>
+              </TouchableWithoutFeedback>
             </View>
-          </TouchableWithoutFeedback>
+            <View>
+              <TouchableWithoutFeedback onPress={handleCloseModal}>
+                <View style={{ marginTop: 10, width: 80 }}>
+                  <TouchableOpacity
+                    onPress={handleWithdrawPress}
+                    style={styles.withdrawButton}
+                  >
+                    <Text style={styles.withdrawRequest}>Withdraw</Text>
+                  </TouchableOpacity>
+
+                  <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={isModalVisible}
+                  >
+                    <TouchableWithoutFeedback onPress={handleCloseModal}>
+                      <View style={styles.modalContainer}>
+                        {/* Backdrop component to close modal on press outside */}
+                        <TouchableOpacity
+                          style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            opacity: 0.5,
+                          }}
+                          onPress={handleCloseModal}
+                        />
+
+                        <View
+                          style={[
+                            styles.modalView,
+                            {
+                              width: windowWidth * 0.8,
+                              height: windowHeight * 0.4,
+                            },
+                          ]}
+                        >
+                          {withdrawalSuccess ? (
+                            <View>
+                              <Text style={styles.successMessage}>
+                                Withdrawal Successful!
+                              </Text>
+                              {/* No notification functionality here */}
+                            </View>
+                          ) : (
+                            <>
+                              <Text style={styles.modalTitle}>
+                                Enter Withdrawal Amount
+                              </Text>
+                              <TextInput
+                                style={styles.input}
+                                keyboardType="numeric"
+                                placeholder="Enter amount"
+                                value={amount}
+                                onChangeText={setAmount}
+                              />
+                              <TouchableOpacity
+                                style={styles.withdrawButtonModal}
+                                onPress={handleWithdraw}
+                              >
+                                <Text style={styles.withdrawRequest}>
+                                  Withdraw
+                                </Text>
+                              </TouchableOpacity>
+                            </>
+                          )}
+                        </View>
+                      </View>
+                    </TouchableWithoutFeedback>
+                  </Modal>
+                </View>
+              </TouchableWithoutFeedback>
+            </View>
+          </View>
         </View>
       </SafeAreaView>
     </>
@@ -255,6 +386,8 @@ const styles = StyleSheet.create({
     elevation: Platform.OS === "android" ? 5 : 0,
   },
   withdrawButton: {
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: Colors.bluee,
     borderWidth: 1,
     borderColor: Colors.bluee,
