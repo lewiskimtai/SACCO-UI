@@ -4,6 +4,6 @@ export default {
   white: '#FCFCFC',
   tintColor: '#624c4c',
   bluee: '#1371d4',
-  black: '#0c0c0c',
+  black: '#000',
   tabcolor: '#5f73f5',
 };

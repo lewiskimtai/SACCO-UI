@@ -1,5 +1,5 @@
 import Colors from "@/constants/Colors";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Text, Image, Animated } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
 
@@ -33,27 +33,17 @@ const pieData = [
 ];
 
 const Crbgraph = () => {
-  const needleRotation = new Animated.Value(0);
+  const [seconds, setSeconds] = useState(new Date().getSeconds());
 
-  // Example: Simulate needle movement (replace with your actual data source)
-  Animated.timing(needleRotation, {
-    toValue: 1,
-    duration: 7000,
-    useNativeDriver: true,
-  }).start();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds(new Date().getSeconds());
+    }, 1000);
 
-  const needleStyle = {
-    transform: [
-      { translateX: 0 }, // Center the needle horizontally
-      { translateY: 0 }, // Adjust for needle position
-      {
-        rotate: needleRotation.interpolate({
-          inputRange: [0, 1],
-          outputRange: ["200deg", "400deg"],
-        }),
-      },
-    ],
-  };
+    return () => clearInterval(interval);
+  }, []);
+
+  const handRotation = seconds * 6; // 6 degrees per second
 
   return (
     <PieChart
@@ -68,21 +58,15 @@ const Crbgraph = () => {
       centerLabelComponent={() => {
         return (
           <View style={{ justifyContent: "center", alignItems: "center" }}>
-            <Text
-              style={{
-                fontSize: 22,
-                color: "black",
-                fontWeight: "900",
-              }}
+            
+            <View
+              style={[
+                styles.container,
+                { transform: [{ rotate: `370deg` }] },
+              ]}
             >
-              47%
-            </Text>
-            <Animated.View style={[styles.needleContainer, needleStyle]}>
-              <Image
-                source={require("../assets/images/download.png")} // Replace with your needle image path
-                style={styles.needleImage}
-              />
-            </Animated.View>
+              <View style={styles.hand} />
+            </View>
           </View>
         );
       }}
@@ -91,13 +75,28 @@ const Crbgraph = () => {
 };
 
 const styles = StyleSheet.create({
-  
   needleContainer: {
     position: "absolute",
   },
   needleImage: {
     width: 70, // Adjust width and height as needed
     height: 95,
+  },
+  container: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  hand: {
+    width: 5,
+    height: 70,
+    backgroundColor: "black",
+    borderRadius: 1,
+    transform: [{ translateY: "-20%" }],
   },
 });
 
