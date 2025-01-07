@@ -1,5 +1,6 @@
+import Colors from "@/constants/Colors";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Platform } from "react-native";
 
 const RecentTransactions = () => {
   const transactions = [
@@ -26,6 +27,11 @@ const RecentTransactions = () => {
   return (
     <View style={styles.recenttransactionsWrapper}>
       <Text style={styles.header}>Recent Transactions</Text>
+      <View style={styles.transactionHeaders}>
+        <Text style={styles.transactionHeader}>Date</Text>
+        <Text style={styles.transactionHeader}>Description</Text>
+        <Text style={styles.transactionHeader}>Amount</Text>
+      </View>
       {transactions.map((transaction, index) => (
         <View key={index} style={styles.transactionRow}>
           <Text style={styles.date}>{transaction.date}</Text>
@@ -49,17 +55,42 @@ const RecentTransactions = () => {
 
 const styles = StyleSheet.create({
   recenttransactionsWrapper: {
+    marginTop: 10,
     marginBottom: 20,
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.white,
+    padding: 10,
+    borderRadius: 10,
+    shadowColor: Colors.black,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
   },
   header: {
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
   },
-  transactionRow: {
+  transactionHeaders: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 5,
+    borderBottomWidth: 1, // Added border for grid line
+    borderColor: Colors.grey, // Adjust border color as needed
+  },
+  transactionHeader: {
+    fontSize: 16,
+    fontWeight: "900",
+  },
+  transactionRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 8,
+    alignItems: "flex-start", // Maintains vertical alignment
+    borderBottomWidth: 0.3, // Added border for grid line
+    borderColor: Colors.grey, // Adjust border color as needed
   },
   date: {
     fontSize: 16,
@@ -69,11 +100,10 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     flex: 2,
+    marginLeft: 5,
   },
   amountContainer: {
     flexDirection: "row",
-    alignItems: "center",
-    flex: 1,
   },
   transactionType: {
     fontSize: 18,
@@ -81,7 +111,7 @@ const styles = StyleSheet.create({
   },
   amount: {
     fontSize: 16,
-    marginLeft: 5,
+    marginRight: 3,
   },
 });
 

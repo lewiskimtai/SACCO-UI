@@ -12,6 +12,7 @@ import { StatusBar } from "expo-status-bar";
 import Crbgraph from "@/componets/Crbgraph";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import DepositandWithdrawButton from "@/componets/DepositandWithdrawButton";
+import RecentTransactions from "@/componets/RecentTransactions";
 
 const Home = () => {
   return (
@@ -86,23 +87,7 @@ const Home = () => {
               </View>
             </View>
           </View>
-          <View style={styles.recenttransactionsWrapper}>
-            <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-              Recent Transactions
-            </Text>
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
-            >
-              <Text style={{ fontSize: 17 }}>Loan Repayment</Text>
-              <Text style={{ fontSize: 17 }}>UGX 50,000.00</Text>
-            </View>
-            <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
-            >
-              <Text style={{ fontSize: 17 }}>Loan Repayment</Text>
-              <Text style={{ fontSize: 17 }}>UGX 50,000.00</Text>
-            </View>
-          </View>
+          <RecentTransactions />
         </View>
       </SafeAreaView>
     </>
