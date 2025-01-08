@@ -71,7 +71,7 @@ const Home = () => {
               <View style={styles.crbgraphWrapper}>
                 <View style={{ flexDirection: "row" }}>
                   <Text style={{ fontSize: 20, marginLeft: 10 }}>
-                    CRB SCORE: <Text style={{ fontWeight: "bold" }}>47%</Text>
+                    CRB SCORE: <Text style={{ fontWeight: "bold" }}>55</Text>
                   </Text>
                 </View>
 
