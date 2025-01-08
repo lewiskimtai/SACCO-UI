@@ -1,6 +1,6 @@
 import Colors from "@/constants/Colors";
 import React from "react";
-import { View, Text, StyleSheet, Platform } from "react-native";
+import { View, Text, StyleSheet, Platform, ScrollView } from "react-native";
 
 const RecentTransactions = () => {
   const transactions = [
@@ -20,6 +20,67 @@ const RecentTransactions = () => {
       date: "2024-12-05",
       description: "Groceries",
       amount: "UGX 50,000.00",
+      type: "Credit",
+    },
+    {
+      date: "2024-12-05",
+      description: "Groceries",
+      amount: "UGX 50,000.00",
+      type: "Debit",
+    },
+    {
+      date: "2024-12-05",
+      description: "Groceries",
+      amount: "UGX 50,000.00",
+      type: "Credit",
+    },
+
+    {
+      date: "2024-12-05",
+      description: "Groceries",
+      amount: "UGX 50,000.00",
+      type: "Debit",
+    },
+    {
+      date: "2024-12-05",
+      description: "Groceries",
+      amount: "UGX 50,000.00",
+      type: "Credit",
+    },
+    {
+      date: "2024-12-05",
+      description: "Groceries",
+      amount: "UGX 50,000.00",
+      type: "Debit",
+    },
+    {
+      date: "2024-12-05",
+      description: "Groceries",
+      amount: "UGX 50,000.00",
+      type: "Credit",
+    },
+    {
+      date: "2024-12-05",
+      description: "Groceries",
+      amount: "UGX 50,000.00",
+      type: "Credit",
+    },
+    {
+      date: "2024-12-05",
+      description: "Groceries",
+      amount: "UGX 50,000.00",
+      type: "Debit",
+    },
+    {
+      date: "2024-12-05",
+      description: "Groceries",
+      amount: "UGX 50,000.00",
+      type: "Debit",
+    },
+    {
+      date: "2024-12-05",
+      description: "Groceries",
+      amount: "UGX 50,000.00",
       type: "Debit",
     },
   ];
@@ -32,35 +93,38 @@ const RecentTransactions = () => {
         <Text style={styles.transactionHeader}>Description</Text>
         <Text style={styles.transactionHeader}>Amount</Text>
       </View>
-      {transactions.map((transaction, index) => (
-        <View key={index} style={styles.transactionRow}>
-          <Text style={styles.date}>{transaction.date}</Text>
-          <Text style={styles.description}>{transaction.description}</Text>
-          <View style={styles.amountContainer}>
-            <Text
-              style={[
-                styles.transactionType,
-                { color: transaction.type === "Credit" ? "green" : "red" },
-              ]}
-            >
-              {transaction.type === "Credit" ? "+" : "-"}
-            </Text>
-            <Text style={styles.amount}>{transaction.amount}</Text>
+      <ScrollView scrollEventThrottle={5}>
+        {transactions.map((transaction, index) => (
+          <View key={index} style={styles.transactionRow}>
+            <Text style={styles.date}>{transaction.date}</Text>
+            <Text style={styles.description}>{transaction.description}</Text>
+            <View style={styles.amountContainer}>
+              <Text
+                style={[
+                  styles.transactionType,
+                  { color: transaction.type === "Credit" ? "green" : "red" },
+                ]}
+              >
+                {transaction.type === "Credit" ? "+" : "-"}
+              </Text>
+              <Text style={styles.amount}>{transaction.amount}</Text>
+            </View>
           </View>
-        </View>
-      ))}
+        ))}
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   recenttransactionsWrapper: {
+    height: 300,
     marginTop: 10,
     marginBottom: 20,
     backgroundColor: Colors.white,
     borderWidth: 1,
     borderColor: Colors.white,
-    padding: 10,
+    paddingHorizontal: 10,
     borderRadius: 10,
     shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
@@ -79,6 +143,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     borderBottomWidth: 1, // Added border for grid line
     borderColor: Colors.grey, // Adjust border color as needed
+    marginRight: 10,
   },
   transactionHeader: {
     fontSize: 16,
@@ -89,8 +154,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: 8,
     alignItems: "flex-start", // Maintains vertical alignment
-    borderBottomWidth: 0.3, // Added border for grid line
+    borderBottomWidth: 0.5, // Added border for grid line
     borderColor: Colors.grey, // Adjust border color as needed
+    marginRight: 10,
+
   },
   date: {
     fontSize: 16,
@@ -111,7 +178,6 @@ const styles = StyleSheet.create({
   },
   amount: {
     fontSize: 16,
-    marginRight: 3,
   },
 });
 
