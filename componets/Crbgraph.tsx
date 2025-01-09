@@ -52,8 +52,8 @@ const Crbgraph = () => {
       showGradient
       sectionAutoFocus
       semiCircle
-      radius={70}
-      innerRadius={55}
+      radius={40}
+      innerRadius={30}
       innerCircleColor={Colors.white}
       centerLabelComponent={() => {
         return (
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   },
   hand: {
     width: 5,
-    height: 70,
+    height: 40,
     backgroundColor: "black",
     borderRadius: 1,
     transform: [{ translateY: "-20%" }],

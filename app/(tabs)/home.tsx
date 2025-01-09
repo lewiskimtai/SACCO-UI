@@ -32,59 +32,36 @@ const Home = () => {
                 </Text>
               </View>
             </View>
-            <TouchableOpacity onPress={() => {}} style={styles.profileButton}>
-              <Text style={styles.loanRequest}>Profile</Text>
-            </TouchableOpacity>
+              <View style={{ flexDirection: "column", alignItems: "center" }}>
+                <Text style={{ fontSize: 15 }}>
+                  CREDIT SCORE: <Text style={{ fontWeight: "bold" }}>55</Text>
+                </Text>
+              <Crbgraph />
+            </View>
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              gap: 10,
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <View style={{ flexDirection: "column" }}>
+          <View >
+            <View style={{ flexDirection: "column", }}>
               <View style={styles.walletbalanceWrapper}>
                 <View style={{ flexDirection: "row" }}>
                   <Ionicons
                     name="wallet"
-                    size={24}
+                    size={30}
                     style={{ color: Colors.black }}
                   />
-                  <Text style={{ fontSize: 20, marginLeft: 10 }}>
+                  <Text style={{ fontSize: 30, marginLeft: 10 }}>
                     Wallet <Text style={{ fontWeight: "bold" }}>Balance</Text>
                   </Text>
                 </View>
 
-                <Text style={{ fontSize: 22, fontWeight: "800" }}>UGX</Text>
+                <Text style={{ fontSize: 25, fontWeight: "800" }}>UGX</Text>
                 <Text>
-                  <Text style={{ fontSize: 30, fontWeight: "900" }}>
+                  <Text style={{ fontSize: 40, fontWeight: "900" }}>
                     500,000.
                   </Text>
                   <Text style={{ fontSize: 21 }}>00</Text>
                 </Text>
               </View>
               <DepositandWithdrawButton />
-            </View>
-            <View style={{ flexDirection: "column", alignItems: "center" }}>
-              <View style={styles.crbgraphWrapper}>
-                <View style={{ flexDirection: "row" }}>
-                  <Text style={{ fontSize: 20, marginLeft: 10 }}>
-                    CRB SCORE: <Text style={{ fontWeight: "bold" }}>55</Text>
-                  </Text>
-                </View>
-
-                <Crbgraph />
-              </View>
-              <View style={{ marginTop: 10 }}>
-                <TouchableOpacity
-                  onPress={() => {}}
-                  style={styles.loanrequestButton}
-                >
-                  <Text style={styles.loanRequest}>Request for a Loan</Text>
-                </TouchableOpacity>
-              </View>
             </View>
           </View>
           <RecentTransactions />
@@ -111,7 +88,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    height: 110,
+    height: 90,
     borderRadius: 10,
     backgroundColor: Colors.white,
     borderWidth: 1,
@@ -176,7 +153,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     borderWidth: 1,
     borderColor: Colors.white,
-    width: 190,
+    width: 380,
     paddingLeft: 10,
     paddingVertical: 10,
     borderRadius: 10,

@@ -224,6 +224,30 @@ const DepositandWithdrawButton = () => {
           </View>
         </TouchableWithoutFeedback>
       </View>
+      <View>
+        <TouchableWithoutFeedback>
+          <View style={{ marginTop: 10, width: 90 }}>
+            <TouchableOpacity
+              style={styles.withdrawButton}
+            >
+              <Text style={styles.withdrawRequest}>Send</Text>
+            </TouchableOpacity>
+
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+      <View>
+        <TouchableWithoutFeedback>
+          <View style={{ marginTop: 10, width: 90 }}>
+            <TouchableOpacity
+              style={styles.withdrawButton}
+            >
+              <Text style={styles.withdrawRequest}>Request Loan</Text>
+            </TouchableOpacity>
+
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
     </View>
   );
 };
@@ -238,7 +262,8 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.bluee,
         borderWidth: 1,
         borderColor: Colors.bluee,
-        padding: 8,
+        paddingLeft: 2,
+        paddingVertical: 10,
         borderRadius: 10,
         shadowColor: Colors.black,
         shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility

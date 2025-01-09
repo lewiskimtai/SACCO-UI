@@ -15,7 +15,7 @@ function Layout() {
         name="deposit"
         options={{
           headerShown: false,
-          title: "Deposit",
+          title: "Sacco",
           tabBarIcon: ({ color, size, focused }) => (
             <MaterialCommunityIcons name="cash-plus" size={35} color={color} />
           ),
@@ -35,7 +35,7 @@ function Layout() {
         name="withdraw"
         options={{
           headerShown: false,
-          title: "Withdraw",
+          title: "Profile",
           tabBarIcon: ({ color, size, focused }) => (
             <MaterialCommunityIcons name="cash-minus" size={35} color={color} />
           ),
