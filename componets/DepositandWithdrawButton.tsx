@@ -238,7 +238,7 @@ const DepositandWithdrawButton = () => {
       </View>
       <View>
         <TouchableWithoutFeedback>
-          <View style={{ marginTop: 10, width: 90 }}>
+          <View style={{ marginTop: 10, width: 100 }}>
             <TouchableOpacity
               style={styles.withdrawButton}
             >
@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
       },
       withdrawRequest: {
         fontSize: 16,
-        fontWeight: "700",
+        fontWeight: "900",
         color: Colors.white,
       },
       modalContainer: {
