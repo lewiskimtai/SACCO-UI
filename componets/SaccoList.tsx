@@ -124,13 +124,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   savingAmount: {
-    fontSize: 14,
-    color: "gray",
+    fontSize: 18,
+    color: Colors.grey,
   },
   interestEarned: {
     fontSize: 14,
     color: "green", // Assuming positive interest is green
-    marginLeft: 80,
+    marginLeft: 60,
   },
 });
 

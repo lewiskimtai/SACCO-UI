@@ -1,6 +1,16 @@
-import { Dimensions, Modal, Platform, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
-import React, { useState } from 'react'
-import Colors from '@/constants/Colors';
+import {
+  Dimensions,
+  Modal,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
+import React, { useState } from "react";
+import Colors from "@/constants/Colors";
 
 const DepositandWithdrawButton = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -72,20 +82,15 @@ const DepositandWithdrawButton = () => {
   const windowWidth = Dimensions.get("window").width;
   const windowHeight = Dimensions.get("window").height;
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        gap: 4,
-      }}
-    >
+    <View style={styles.buttonsWrapper}>
       <View>
         <TouchableWithoutFeedback onPress={handleCloseDepositModal}>
-          <View style={{ marginTop: 6, width: 90 }}>
+          <View>
             <TouchableOpacity
               onPress={handleDespositPress}
-              style={styles.withdrawButton}
+              style={styles.depositButton}
             >
-              <Text style={styles.withdrawRequest}>Deposit</Text>
+              <Text style={styles.buttonTexts}>Deposit</Text>
             </TouchableOpacity>
 
             <Modal
@@ -97,14 +102,7 @@ const DepositandWithdrawButton = () => {
                 <View style={styles.modalContainer}>
                   {/* Backdrop component to close modal on press outside */}
                   <TouchableOpacity
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      opacity: 0.5,
-                    }}
+                    style={styles.closemodalButton}
                     onPress={handleCloseDepositModal}
                   />
 
@@ -140,7 +138,7 @@ const DepositandWithdrawButton = () => {
                           style={styles.withdrawButtonModal}
                           onPress={handleDeposit}
                         >
-                          <Text style={styles.withdrawRequest}>Deposit</Text>
+                          <Text style={styles.buttonTexts}>Deposit</Text>
                         </TouchableOpacity>
                       </>
                     )}
@@ -153,12 +151,12 @@ const DepositandWithdrawButton = () => {
       </View>
       <View>
         <TouchableWithoutFeedback onPress={handleCloseModal}>
-          <View style={{ marginTop: 6, width: 90 }}>
+          <View>
             <TouchableOpacity
               onPress={handleWithdrawPress}
               style={styles.withdrawButton}
             >
-              <Text style={styles.withdrawRequest}>Withdraw</Text>
+              <Text style={styles.buttonTexts}>Withdraw</Text>
             </TouchableOpacity>
 
             <Modal
@@ -170,14 +168,7 @@ const DepositandWithdrawButton = () => {
                 <View style={styles.modalContainer}>
                   {/* Backdrop component to close modal on press outside */}
                   <TouchableOpacity
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      opacity: 0.5,
-                    }}
+                    style={styles.closemodalButton}
                     onPress={handleCloseModal}
                   />
 
@@ -213,7 +204,7 @@ const DepositandWithdrawButton = () => {
                           style={styles.withdrawButtonModal}
                           onPress={handleWithdraw}
                         >
-                          <Text style={styles.withdrawRequest}>Withdraw</Text>
+                          <Text style={styles.buttonTexts}>Withdraw</Text>
                         </TouchableOpacity>
                       </>
                     )}
@@ -226,26 +217,16 @@ const DepositandWithdrawButton = () => {
       </View>
       <View>
         <TouchableWithoutFeedback>
-          <View style={{ marginTop: 6, width: 90 }}>
-            <TouchableOpacity
-              style={styles.withdrawButton}
-            >
-              <Text style={styles.withdrawRequest}>Send</Text>
-            </TouchableOpacity>
-
-          </View>
+          <TouchableOpacity style={styles.sendButton}>
+            <Text style={styles.buttonTexts}>Send</Text>
+          </TouchableOpacity>
         </TouchableWithoutFeedback>
       </View>
       <View>
         <TouchableWithoutFeedback>
-          <View style={{ marginTop: 6, width: 110 }}>
-            <TouchableOpacity
-              style={styles.withdrawButton}
-            >
-              <Text style={styles.withdrawRequest}>Request Loan</Text>
-            </TouchableOpacity>
-
-          </View>
+          <TouchableOpacity style={styles.loanrequestButton}>
+            <Text style={styles.buttonTexts}>Request Loan</Text>
+          </TouchableOpacity>
         </TouchableWithoutFeedback>
       </View>
     </View>
@@ -255,68 +236,133 @@ const DepositandWithdrawButton = () => {
 export default DepositandWithdrawButton;
 
 const styles = StyleSheet.create({
-    
-      withdrawButton: {
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: Colors.bluee,
-        borderWidth: 1,
-        borderColor: Colors.bluee,
-        paddingLeft: 2,
-        paddingVertical: 10,
-        borderRadius: 10,
-        shadowColor: Colors.black,
-        shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
-        shadowRadius: 10, // Reduced shadowRadius
-        shadowOpacity: 0.3, // Reduced shadowOpacity
-        elevation: Platform.OS === "android" ? 5 : 0,
-      },
-      withdrawRequest: {
-        fontSize: 16,
-        fontWeight: "900",
-        color: Colors.white,
-      },
-      modalContainer: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-      },
-      modalView: {
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 35,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
-      },
-      modalTitle: {
-        fontSize: 18,
-        fontWeight: "bold",
-        marginBottom: 20,
-      },
-      input: {
-        borderWidth: 1,
-        borderColor: "#ccc",
-        padding: 10,
-        borderRadius: 5,
-        marginBottom: 20,
-        width: "80%",
-      },
-      withdrawButtonModal: {
-        backgroundColor: "blue",
-        padding: 15,
-        borderRadius: 5,
-      },
-      successMessage: {
-        color: "green",
-        fontWeight: "bold",
-        marginBottom: 10,
-      },
-})
+  buttonsWrapper: {
+    flexDirection: "row",
+    gap: 4,
+  },
+  depositButton: {
+    marginTop: 6,
+    width: 90,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.bluee,
+    borderWidth: 1,
+    borderColor: Colors.bluee,
+    paddingLeft: 2,
+    paddingVertical: 10,
+    borderRadius: 10,
+    shadowColor: Colors.black,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
+  },
+  sendButton: {
+    marginTop: 6,
+    width: 90,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.bluee,
+    borderWidth: 1,
+    borderColor: Colors.bluee,
+    paddingLeft: 2,
+    paddingVertical: 10,
+    borderRadius: 10,
+    shadowColor: Colors.black,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
+  },
+  loanrequestButton: {
+    marginTop: 6,
+    width: 110,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.bluee,
+    borderWidth: 1,
+    borderColor: Colors.bluee,
+    paddingLeft: 2,
+    paddingVertical: 10,
+    borderRadius: 10,
+    shadowColor: Colors.black,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
+  },
+
+  withdrawButton: {
+    marginTop: 6,
+    width: 90,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.bluee,
+    borderWidth: 1,
+    borderColor: Colors.bluee,
+    paddingLeft: 2,
+    paddingVertical: 10,
+    borderRadius: 10,
+    shadowColor: Colors.black,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
+  },
+  buttonTexts: {
+    fontSize: 16,
+    fontWeight: "900",
+    color: Colors.white,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalView: {
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 20,
+    width: "80%",
+  },
+  withdrawButtonModal: {
+    backgroundColor: "blue",
+    padding: 15,
+    borderRadius: 5,
+  },
+  successMessage: {
+    color: "green",
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  closemodalButton: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    opacity: 0.5,
+  },
+});
