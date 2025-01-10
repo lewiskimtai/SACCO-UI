@@ -80,7 +80,7 @@ const DepositandWithdrawButton = () => {
     >
       <View>
         <TouchableWithoutFeedback onPress={handleCloseDepositModal}>
-          <View style={{ marginTop: 10, width: 90 }}>
+          <View style={{ marginTop: 6, width: 90 }}>
             <TouchableOpacity
               onPress={handleDespositPress}
               style={styles.withdrawButton}
@@ -153,7 +153,7 @@ const DepositandWithdrawButton = () => {
       </View>
       <View>
         <TouchableWithoutFeedback onPress={handleCloseModal}>
-          <View style={{ marginTop: 10, width: 90 }}>
+          <View style={{ marginTop: 6, width: 90 }}>
             <TouchableOpacity
               onPress={handleWithdrawPress}
               style={styles.withdrawButton}
@@ -226,7 +226,7 @@ const DepositandWithdrawButton = () => {
       </View>
       <View>
         <TouchableWithoutFeedback>
-          <View style={{ marginTop: 10, width: 90 }}>
+          <View style={{ marginTop: 6, width: 90 }}>
             <TouchableOpacity
               style={styles.withdrawButton}
             >
@@ -238,7 +238,7 @@ const DepositandWithdrawButton = () => {
       </View>
       <View>
         <TouchableWithoutFeedback>
-          <View style={{ marginTop: 10, width: 100 }}>
+          <View style={{ marginTop: 6, width: 110 }}>
             <TouchableOpacity
               style={styles.withdrawButton}
             >

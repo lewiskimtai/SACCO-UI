@@ -118,9 +118,8 @@ const RecentTransactions = () => {
 
 const styles = StyleSheet.create({
   recenttransactionsWrapper: {
-    height: 250,
-    marginTop: 10,
-    marginBottom: 20,
+    height: 240,
+    marginTop: 5,
     backgroundColor: Colors.white,
     borderWidth: 1,
     borderColor: Colors.white,
@@ -135,7 +134,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 10,
+    marginBottom: 2,
   },
   transactionHeaders: {
     flexDirection: "row",

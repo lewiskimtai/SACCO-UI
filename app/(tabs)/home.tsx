@@ -5,6 +5,7 @@ import {
   Image,
   TouchableOpacity,
   Platform,
+  ImageBackground,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Colors from "@/constants/Colors";
@@ -13,60 +14,63 @@ import Crbgraph from "@/componets/Crbgraph";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import DepositandWithdrawButton from "@/componets/DepositandWithdrawButton";
 import RecentTransactions from "@/componets/RecentTransactions";
+import SaccoList from "@/componets/SaccoList";
+
+import { SubtlePrism } from "@/constants/Icons";
 
 const Home = () => {
   return (
     <>
-      <StatusBar style="dark" />
-      <SafeAreaView style={styles.safeAreaView}>
-        <View style={styles.container}>
-          <View style={styles.headerView}>
-            <View style={styles.profileHolder}>
-              <Image
-                source={require("../../assets/images/profilepic.jpg")}
-                style={styles.profileImage}
-              />
-              <View style={{ marginLeft: 10 }}>
-                <Text style={styles.hiName}>
-                  Hi, <Text style={{ fontWeight: "700" }}>Lewis</Text>
-                </Text>
+      <StatusBar style="light" />
+      <ImageBackground source={SubtlePrism} style={styles.background}>
+        <SafeAreaView style={styles.safeAreaView}>
+          <View style={styles.container}>
+            <View style={styles.headerView}>
+              <View style={styles.profileHolder}>
+                <Image
+                  source={require("../../assets/images/profilepic.jpg")}
+                  style={styles.profileImage}
+                />
+                <View style={{ marginLeft: 10 }}>
+                  <Text style={styles.hiName}>
+                    Hi, <Text style={{ fontWeight: "700" }}>Lewis</Text>
+                  </Text>
+                </View>
               </View>
-            </View>
               <View style={{ flexDirection: "column", alignItems: "center" }}>
                 <Text style={{ fontSize: 15 }}>
                   CREDIT SCORE: <Text style={{ fontWeight: "bold" }}>55</Text>
                 </Text>
-              <Crbgraph />
+                <Crbgraph />
+              </View>
             </View>
-          </View>
-          <View >
-            <View style={{ flexDirection: "column", }}>
-              <View style={styles.walletbalanceWrapper}>
-                <View style={{ flexDirection: "row" }}>
-                  <Ionicons
-                    name="wallet"
-                    size={30}
-                    style={{ color: Colors.black }}
-                  />
-                  <Text style={{ fontSize: 30, marginLeft: 10 }}>
-                    Wallet <Text style={{ fontWeight: "bold" }}>Balance</Text>
+            <View>
+              <View style={{ flexDirection: "column" }}>
+                <View style={styles.walletbalanceWrapper}>
+                  <View style={{ flexDirection: "row" }}>
+                    <Ionicons
+                      name="wallet"
+                      size={30}
+                      style={{ color: Colors.black }}
+                    />
+                    <Text style={{ fontSize: 30, marginLeft: 10 }}>
+                      Wallet <Text style={{ fontWeight: "bold" }}>Balance</Text>
+                    </Text>
+                  </View>
+
+                  <Text style={{ fontSize: 25, fontWeight: "800" }}>UGX</Text>
+                  <Text style={{ fontSize: 40, fontWeight: "900" }}>
+                    500,000
                   </Text>
                 </View>
-
-                <Text style={{ fontSize: 25, fontWeight: "800" }}>UGX</Text>
-                <Text>
-                  <Text style={{ fontSize: 40, fontWeight: "900" }}>
-                    500,000.
-                  </Text>
-                  <Text style={{ fontSize: 21 }}>00</Text>
-                </Text>
+                <DepositandWithdrawButton />
               </View>
-              <DepositandWithdrawButton />
             </View>
+            <RecentTransactions />
+            <SaccoList />
           </View>
-          <RecentTransactions />
-        </View>
-      </SafeAreaView>
+        </SafeAreaView>
+      </ImageBackground>
     </>
   );
 };
@@ -81,8 +85,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingHorizontal: 15,
-    backgroundColor: "#DEDEDE",
+    paddingHorizontal: 10,
+    paddingTop: 4,
   },
   headerView: {
     flexDirection: "row",
@@ -95,7 +99,6 @@ const styles = StyleSheet.create({
     borderColor: Colors.white,
     paddingHorizontal: 10,
     paddingVertical: 10,
-    marginVertical: 10,
     shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
     shadowRadius: 10, // Reduced shadowRadius
@@ -149,11 +152,12 @@ const styles = StyleSheet.create({
     elevation: Platform.OS === "android" ? 5 : 0,
   },
   walletbalanceWrapper: {
+    marginTop: 5,
     gap: 10,
     backgroundColor: Colors.white,
     borderWidth: 1,
     borderColor: Colors.white,
-    width: 380,
+    paddingRight: 10,
     paddingLeft: 10,
     paddingVertical: 10,
     borderRadius: 10,
