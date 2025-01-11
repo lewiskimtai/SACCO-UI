@@ -14,6 +14,7 @@ import SaccoList from "@/componets/SaccoList";
 import { SubtlePrism } from "@/constants/Icons";
 import HeaderWrapper from "@/componets/HeaderWrapper";
 import WalletWrapper from "@/componets/WalletWrapper";
+import DepositandWithdrawButton from "@/componets/DepositandWithdrawButton";
 
 const Home = () => {
   return (
@@ -23,7 +24,10 @@ const Home = () => {
         <SafeAreaView style={styles.safeAreaView}>
           <View style={styles.container}>
             <HeaderWrapper />
-            <WalletWrapper />
+            <View style={{ flexDirection: "column" }}>
+              <WalletWrapper />
+              <DepositandWithdrawButton />
+            </View>
             <RecentTransactions />
             <SaccoList />
           </View>
@@ -45,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 10,
     paddingTop: 4,
-  }
+  },
 });
 
 export default Home;

@@ -30,7 +30,7 @@ const Deposit = () => {
                   <Text style={{ fontSize: 17, fontWeight: "500" }}>
                     TOTAL SAVINGS UGX:
                   </Text>
-                  <Text style={{ fontSize: 22, fontWeight: "900" }}>
+                  <Text style={{ fontSize: 28, fontWeight: "900" }}>
                     1,000,000
                   </Text>
                 </View>
@@ -39,7 +39,7 @@ const Deposit = () => {
                     TOTAL INTERESTS:
                   </Text>
                   <Text
-                    style={{ fontSize: 17, fontWeight: "900", color: "green" }}
+                    style={{ fontSize: 20, fontWeight: "900", color: "green" }}
                   >
                     200,000
                   </Text>

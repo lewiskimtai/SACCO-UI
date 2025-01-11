@@ -213,14 +213,12 @@ export default SaccoWrapper;
 
 const styles = StyleSheet.create({
   saccoWrapper: {
-    height: 665,
-    marginTop: 10,
+    height: 670,
+    marginTop: 5,
     backgroundColor: Colors.white,
     borderWidth: 1,
     borderColor: Colors.white,
     paddingHorizontal: 10,
-    borderTopRightRadius: 60,
-    borderTopLeftRadius: 60,
     borderRadius: 10,
     shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 5 },
@@ -232,6 +230,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginLeft: 30,
+    marginBottom: 10,
   },
   saccosItem: {
     flexDirection: "row",
