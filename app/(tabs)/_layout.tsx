@@ -4,6 +4,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { TabBar } from "@/componets/TabBar";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { JSX } from "react/jsx-runtime";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 
 
@@ -15,9 +16,9 @@ function Layout() {
         name="deposit"
         options={{
           headerShown: false,
-          title: "Sacco",
+          title: "Saccos",
           tabBarIcon: ({ color, size, focused }) => (
-            <MaterialCommunityIcons name="cash-plus" size={35} color={color} />
+            <FontAwesome name="group" size={24} color={color} />
           ),
         }}
       />

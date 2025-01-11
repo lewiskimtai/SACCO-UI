@@ -58,7 +58,7 @@ const saccos = [
 const SaccoList = () => {
   return (
     <View style={styles.recenttransactionsWrapper}>
-      <Text style={styles.header}>Sacco List</Text>
+      <Text style={styles.header}>Recent Sacco Transactions</Text>
       <FlatList
         data={saccos}
         renderItem={({ item }) => (
