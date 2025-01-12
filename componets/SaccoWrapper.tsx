@@ -5,6 +5,7 @@ import {
   Text,
   View,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import Colors from "@/constants/Colors";
@@ -184,7 +185,24 @@ const saccos = [
 const SaccoWrapper = () => {
   return (
     <View style={styles.saccoWrapper}>
-      <Text style={styles.header}>Sacco List</Text>
+      <View style={styles.header}>
+        <Text
+          style={{
+            fontSize: 25,
+            fontWeight: "bold",
+          }}
+        >
+          Sacco List
+        </Text>
+        <View style={styles.saccoButtons}>
+          <TouchableOpacity style={styles.saccoButton}>
+            <Text style={styles.saccobuttonTexts}>Create a Sacco</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.saccoButton}>
+            <Text style={styles.saccobuttonTexts}>Join a Sacco</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
       <FlatList
         data={saccos}
         renderItem={({ item }) => (
@@ -227,10 +245,36 @@ const styles = StyleSheet.create({
     elevation: Platform.OS === "android" ? 5 : 0,
   },
   header: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginLeft: 30,
-    marginBottom: 10,
+    paddingHorizontal: 10,
+    alignItems: "center",
+    flexDirection: "row",
+    paddingVertical: 5,
+  },
+  saccoButtons: {
+    flexDirection: "row",
+    marginLeft: 60,
+  },
+  saccoButton: {
+    width: 95,
+    marginLeft: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.bluee,
+    borderWidth: 1,
+    borderColor: Colors.bluee,
+    paddingLeft: 2,
+    paddingVertical: 10,
+    borderRadius: 10,
+    shadowColor: Colors.black,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
+  },
+  saccobuttonTexts: {
+    fontSize: 16,
+    fontWeight: "900",
+    color: Colors.white,
   },
   saccosItem: {
     flexDirection: "row",

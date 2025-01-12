@@ -6,7 +6,7 @@ import { SubtlePrism } from "@/constants/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 
-const Withdraw = () => {
+const Loans = () => {
   
 
   return (
@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Withdraw;
+export default Loans;

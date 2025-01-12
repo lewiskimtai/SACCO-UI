@@ -5,6 +5,8 @@ import { TabBar } from "@/componets/TabBar";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { JSX } from "react/jsx-runtime";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+
 
 
 
@@ -13,7 +15,7 @@ function Layout() {
   return (
     <Tabs tabBar={(props: JSX.IntrinsicAttributes & BottomTabBarProps) => <TabBar {...props} />}>
       <Tabs.Screen
-        name="deposit"
+        name="saccos"
         options={{
           headerShown: false,
           title: "Saccos",
@@ -33,12 +35,12 @@ function Layout() {
         }}
       />
       <Tabs.Screen
-        name="withdraw"
+        name="loans"
         options={{
           headerShown: false,
-          title: "Profile",
+          title: "Loans",
           tabBarIcon: ({ color, size, focused }) => (
-            <MaterialCommunityIcons name="cash-minus" size={35} color={color} />
+            <FontAwesome6 name="hand-holding-dollar" size={35} color={color} />
           ),
         }}
       />

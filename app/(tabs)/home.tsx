@@ -1,16 +1,12 @@
 import {
   StyleSheet,
-  Text,
   View,
-  Platform,
   ImageBackground,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Colors from "@/constants/Colors";
 import { StatusBar } from "expo-status-bar";
 import RecentTransactions from "@/componets/RecentTransactions";
 import SaccoList from "@/componets/SaccoList";
-
 import { SubtlePrism } from "@/constants/Icons";
 import HeaderWrapper from "@/componets/HeaderWrapper";
 import WalletWrapper from "@/componets/WalletWrapper";

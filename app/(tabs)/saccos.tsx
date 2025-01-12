@@ -11,7 +11,7 @@ import SaccoWrapper from "@/componets/SaccoWrapper";
 import Colors from "@/constants/Colors";
 import { StatusBar } from "expo-status-bar";
 
-const Deposit = () => {
+const Saccos = () => {
   return (
     <>
       <StatusBar style="light" />
@@ -88,4 +88,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Deposit;
+export default Saccos;
