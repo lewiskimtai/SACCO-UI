@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.3,
     borderColor: Colors.grey,
     height: 50,
+    marginRight: 10,
   },
   profilePicture: {
     width: 50,
@@ -161,15 +162,15 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 16,
     color: "gray",
-    flex: 1,
+    
   },
   description: {
     fontSize: 16,
     flex: 2,
-    marginLeft: 5,
+    marginLeft: 30,
   },
   amount: {
-    fontSize: 14,
+    fontSize: 16,
   },
 });
 

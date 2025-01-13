@@ -10,171 +10,148 @@ import {
 import React from "react";
 import Colors from "@/constants/Colors";
 
+
 const saccos = [
   {
     name: "Koperasi Mwalimu Sacco",
-    id: 1,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 5000,
     interestEarned: "12.5%",
   },
   {
     name: "Saccos for Education Kenya",
-    id: 2,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 50000,
     interestEarned: "10.2%",
   },
   {
     name: "Hazina Sacco",
-    id: 3,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 10000,
     interestEarned: "14.1%",
   },
   {
     name: "Koperasi Mwalimu Sacco",
-    id: 1,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 5000,
     interestEarned: "12.5%",
   },
   {
     name: "Saccos for Education Kenya",
-    id: 2,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 50000,
     interestEarned: "10.2%",
   },
   {
     name: "Hazina Sacco",
-    id: 3,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 10000,
     interestEarned: "14.1%",
   },
   {
     name: "Koperasi Mwalimu Sacco",
-    id: 1,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 5000,
     interestEarned: "12.5%",
   },
   {
     name: "Saccos for Education Kenya",
-    id: 2,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 50000,
     interestEarned: "10.2%",
   },
   {
     name: "Hazina Sacco",
-    id: 3,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 10000,
     interestEarned: "14.1%",
   },
   {
     name: "Koperasi Mwalimu Sacco",
-    id: 1,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 5000,
     interestEarned: "12.5%",
   },
   {
     name: "Saccos for Education Kenya",
-    id: 2,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 50000,
     interestEarned: "10.2%",
   },
   {
     name: "Hazina Sacco",
-    id: 3,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 10000,
     interestEarned: "14.1%",
   },
   {
     name: "Koperasi Mwalimu Sacco",
-    id: 1,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 5000,
     interestEarned: "12.5%",
   },
   {
     name: "Saccos for Education Kenya",
-    id: 2,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 50000,
     interestEarned: "10.2%",
   },
   {
     name: "Hazina Sacco",
-    id: 3,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 10000,
     interestEarned: "14.1%",
   },
   {
     name: "Koperasi Mwalimu Sacco",
-    id: 1,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 5000,
     interestEarned: "12.5%",
   },
   {
     name: "Saccos for Education Kenya",
-    id: 2,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 50000,
     interestEarned: "10.2%",
   },
   {
     name: "Hazina Sacco",
-    id: 3,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 10000,
     interestEarned: "14.1%",
   },
   {
     name: "Koperasi Mwalimu Sacco",
-    id: 1,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 5000,
     interestEarned: "12.5%",
   },
   {
     name: "Saccos for Education Kenya",
-    id: 2,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 50000,
     interestEarned: "10.2%",
   },
   {
     name: "Hazina Sacco",
-    id: 3,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 10000,
     interestEarned: "14.1%",
   },
   {
     name: "Koperasi Mwalimu Sacco",
-    id: 1,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 5000,
     interestEarned: "12.5%",
   },
   {
     name: "Saccos for Education Kenya",
-    id: 2,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 50000,
     interestEarned: "10.2%",
   },
   {
     name: "Hazina Sacco",
-    id: 3,
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
     saving: 10000,
     interestEarned: "14.1%",
@@ -186,14 +163,7 @@ const SaccoWrapper = () => {
   return (
     <View style={styles.saccoWrapper}>
       <View style={styles.header}>
-        <Text
-          style={{
-            fontSize: 25,
-            fontWeight: "bold",
-          }}
-        >
-          Sacco List
-        </Text>
+        <Text style={{ fontSize: 25, fontWeight: "bold" }}>Sacco List</Text>
         <View style={styles.saccoButtons}>
           <TouchableOpacity style={styles.saccoButton}>
             <Text style={styles.saccobuttonTexts}>Create a Sacco</Text>
@@ -206,22 +176,31 @@ const SaccoWrapper = () => {
       <FlatList
         data={saccos}
         renderItem={({ item }) => (
-          <View style={styles.saccosItem}>
-            <Image source={item.profilePicture} style={styles.profilePicture} />
-            <View style={styles.saccosInfo}>
-              <Text style={styles.saccosName}>{item.name}</Text>
-              <View style={{ flexDirection: "row" }}>
-                <Text style={styles.savingAmount}>
-                  Savings: UGX {item.saving}
-                </Text>
-                <Text style={styles.interestEarned}>
-                  Interest: {item.interestEarned}
-                </Text>
+          <TouchableOpacity
+            key={item.name}
+            onPress={() => {
+              /* Handle Sacco press */
+            }}
+          >
+            <View style={styles.saccosItem}>
+              <Image
+                source={item.profilePicture}
+                style={styles.profilePicture}
+              />
+              <View style={styles.saccosInfo}>
+                <Text style={styles.saccosName}>{item.name}</Text>
+                <View style={{ flexDirection: "row" }}>
+                  <Text style={styles.savingAmount}>
+                    Savings: UGX {item.saving}
+                  </Text>
+                  <Text style={styles.interestEarned}>
+                    Interest: {item.interestEarned}
+                  </Text>
+                </View>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         )}
-        keyExtractor={(item) => item.id.toString()} // Extract a unique key for each item
       />
     </View>
   );
