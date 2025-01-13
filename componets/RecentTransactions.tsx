@@ -7,80 +7,80 @@ const RecentTransactions = () => {
     {
       date: "2024-12-15",
       description: "Salary",
-      amount: "UGX 500,000.00",
+      amount: "U00,000",
       type: "Credit",
     },
     {
       date: "2024-12-10",
       description: "Rent Payment",
-      amount: "UGX 200,000.00",
+      amount: "U00,000",
       type: "Debit",
     },
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Credit",
     },
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Debit",
     },
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Credit",
     },
 
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Debit",
     },
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Credit",
     },
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Debit",
     },
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Credit",
     },
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Credit",
     },
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Debit",
     },
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Debit",
     },
     {
       date: "2024-12-05",
       description: "Groceries",
-      amount: "UGX 50,000.00",
+      amount: "50,000",
       type: "Debit",
     },
   ];
@@ -107,7 +107,7 @@ const RecentTransactions = () => {
               >
                 {transaction.type === "Credit" ? "+" : "-"}
               </Text>
-              <Text style={styles.amount}>{transaction.amount}</Text>
+              <Text style={styles.amount}>UGX {transaction.amount}</Text>
             </View>
           </View>
         ))}
