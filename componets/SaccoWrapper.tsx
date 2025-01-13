@@ -10,6 +10,7 @@ import {
 import React from "react";
 import Colors from "@/constants/Colors";
 
+
 const saccos = [
   {
     name: "Koperasi Mwalimu Sacco",
@@ -190,15 +191,15 @@ const SaccoWrapper = () => {
                 <Text style={styles.saccosName}>{item.name}</Text>
                 <View
                   style={{
-                    flexDirection: "row",
+                    flexDirection: "row",                 
                   }}
                 >
                   <Text style={styles.savingAmount}>
                     Savings: UGX {item.saving}
                   </Text>
-                  <Text style={styles.interestEarned}>
-                    Interest: {item.interestEarned}
-                  </Text>
+                    <Text style={styles.interestEarned}>
+                      Interest: {item.interestEarned}
+                    </Text>
                 </View>
               </View>
             </View>
