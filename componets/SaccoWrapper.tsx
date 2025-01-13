@@ -10,7 +10,6 @@ import {
 import React from "react";
 import Colors from "@/constants/Colors";
 
-
 const saccos = [
   {
     name: "Koperasi Mwalimu Sacco",
@@ -189,7 +188,11 @@ const SaccoWrapper = () => {
               />
               <View style={styles.saccosInfo}>
                 <Text style={styles.saccosName}>{item.name}</Text>
-                <View style={{ flexDirection: "row" }}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                  }}
+                >
                   <Text style={styles.savingAmount}>
                     Savings: UGX {item.saving}
                   </Text>
@@ -215,7 +218,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     borderWidth: 1,
     borderColor: Colors.white,
-    paddingHorizontal: 10,
     borderRadius: 10,
     shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 5 },
@@ -231,7 +233,7 @@ const styles = StyleSheet.create({
   },
   saccoButtons: {
     flexDirection: "row",
-    marginLeft: 60,
+    marginLeft: 70,
   },
   saccoButton: {
     width: 95,
@@ -258,14 +260,12 @@ const styles = StyleSheet.create({
   saccosItem: {
     flexDirection: "row",
     alignItems: "center",
-    borderBottomWidth: 0.3,
-    borderColor: Colors.grey,
     height: 60,
-    marginTop: 5,
+    marginBottom: 10,
   },
   profilePicture: {
-    width: 80,
-    height: 80,
+    width: 70,
+    height: 70,
     borderRadius: 25,
     marginRight: 10,
   },
@@ -281,6 +281,6 @@ const styles = StyleSheet.create({
   interestEarned: {
     fontSize: 14,
     color: "green", // Assuming positive interest is green
-    marginLeft: 60,
+    marginLeft: 80,
   },
 });
