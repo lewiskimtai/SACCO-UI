@@ -9,50 +9,33 @@ import {
 } from "react-native";
 import Colors from "@/constants/Colors";
 
-const saccos = [
+const transactions = [
+  // Sample transaction data (replace with actual data)
   {
-    name: "Koperasi Mwalimu Sacco",
+    saccoName: "Koperasi Mwalimu Sacco",
     id: 1,
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
-    saving: 5000,
-    interestEarned: "12.5%",
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    transactionType: "Deposit",
+    amount: 5000,
+    date: "2023-01-10",
   },
   {
-    name: "Saccos for Education Kenya",
+    saccoName: "Saccos for Education Kenya",
     id: 2,
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
-    saving: 50000,
-    interestEarned: "10.2%",
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    transactionType: "Withdrawal",
+    amount: 2000,
+    date: "2023-01-12",
   },
   {
-    name: "Hazina Sacco",
+    saccoName: "Hazina Sacco",
     id: 3,
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
-    saving: 10000,
-    interestEarned: "14.1%",
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    transactionType: "Interest Earned",
+    amount: 100,
+    date: "2023-01-11",
   },
-  {
-    name: "Koperasi Mwalimu Sacco",
-    id: 1,
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
-    saving: 5000,
-    interestEarned: "12.5%",
-  },
-  {
-    name: "Saccos for Education Kenya",
-    id: 2,
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
-    saving: 50000,
-    interestEarned: "10.2%",
-  },
-  {
-    name: "Hazina Sacco",
-    id: 3,
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with your image path
-    saving: 10000,
-    interestEarned: "14.1%",
-  },
-  // Add more saccos as needed
+  // Add more transactions as needed
 ];
 
 const SaccoList = () => {
@@ -60,19 +43,17 @@ const SaccoList = () => {
     <View style={styles.recenttransactionsWrapper}>
       <Text style={styles.header}>Recent Sacco Transactions</Text>
       <FlatList
-        data={saccos}
+        data={transactions}
         renderItem={({ item }) => (
-          <View style={styles.saccosItem}>
+          <View style={styles.transactionItem}>
             <Image source={item.profilePicture} style={styles.profilePicture} />
-            <View style={styles.saccosInfo}>
-              <Text style={styles.saccosName}>{item.name}</Text>
+            <View style={styles.transactionInfo}>
+              <Text style={styles.saccosName}>{item.saccoName}</Text>
               <View style={{ flexDirection: "row" }}>
-                <Text style={styles.savingAmount}>
-                  Savings: UGX {item.saving}
+                <Text style={styles.transactionDetails}>
+                  {item.transactionType} - UGX {item.amount}
                 </Text>
-                <Text style={styles.interestEarned}>
-                  Interest: {item.interestEarned}
-                </Text>
+                <Text style={styles.date}>{item.date}</Text>
               </View>
             </View>
           </View>
@@ -102,35 +83,34 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  saccosItem: {
+  transactionItem: {
     flexDirection: "row",
     alignItems: "center",
     borderBottomWidth: 0.3,
     borderColor: Colors.grey,
-    height: 60,
+    height: 70,
     marginTop: 5,
   },
   profilePicture: {
-    width: 80,
-    height: 80,
+    width: 50,
+    height: 50,
     borderRadius: 25,
     marginRight: 10,
   },
-  saccosInfo: {
-    
+  transactionInfo: {
+    flexDirection: "column",
   },
   saccosName: {
     fontSize: 16,
     fontWeight: "bold",
   },
-  savingAmount: {
-    fontSize: 18,
+  transactionDetails: {
+    fontSize: 14,
     color: Colors.grey,
   },
-  interestEarned: {
-    fontSize: 14,
-    color: "green", // Assuming positive interest is green
-    marginLeft: 60,
+  date: {
+    fontSize: 12,
+    color: Colors.grey,
   },
 });
 
