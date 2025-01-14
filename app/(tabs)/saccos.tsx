@@ -36,7 +36,7 @@ const Saccos = () => {
                 </View>
                 <View style={{ flexDirection: "column", marginLeft: 10 }}>
                   <Text style={{ fontSize: 17, fontWeight: "500" }}>
-                    TOTAL INTERESTS:
+                    TOTAL INTEREST EARNED:
                   </Text>
                   <Text
                     style={{ fontSize: 20, fontWeight: "900", color: "green" }}

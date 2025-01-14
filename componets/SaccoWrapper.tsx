@@ -10,7 +10,6 @@ import {
 import React from "react";
 import Colors from "@/constants/Colors";
 
-
 const saccos = [
   {
     name: "Koperasi Mwalimu Sacco",
@@ -191,15 +190,19 @@ const SaccoWrapper = () => {
                 <Text style={styles.saccosName}>{item.name}</Text>
                 <View
                   style={{
-                    flexDirection: "row",                 
+                    flexDirection: "row",
                   }}
                 >
-                  <Text style={styles.savingAmount}>
-                    Savings: UGX {item.saving}
-                  </Text>
-                    <Text style={styles.interestEarned}>
-                      Interest: {item.interestEarned}
+                  <View style={{ width: 190 }}>
+                    <Text style={styles.savingAmount}>
+                      Savings: UGX {item.saving}
                     </Text>
+                  </View>
+                  <View>
+                    <Text style={styles.interestEarned}>
+                      Interest Earned: {item.interestEarned}
+                    </Text>
+                  </View>
                 </View>
               </View>
             </View>
@@ -265,8 +268,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   profilePicture: {
-    width: 70,
-    height: 70,
+    width: 65,
+    height: 65,
     borderRadius: 25,
     marginRight: 10,
   },
@@ -282,6 +285,6 @@ const styles = StyleSheet.create({
   interestEarned: {
     fontSize: 14,
     color: "green", // Assuming positive interest is green
-    marginLeft: 80,
+    
   },
 });
