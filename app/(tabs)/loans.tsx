@@ -3,6 +3,7 @@ import { SubtlePrism } from "@/constants/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import Colors from "@/constants/Colors";
+import RunningloanWrapper from "@/componets/RunningloanWrapper";
 
 const Loans = () => {
   return (
@@ -11,9 +12,26 @@ const Loans = () => {
       <ImageBackground source={SubtlePrism} style={styles.background}>
         <SafeAreaView style={styles.safeAreaView}>
           <View style={styles.container}>
-            <View style={styles.headerWrapper}>              </View>
+            <View style={styles.headerWrapper}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  marginRight: 10,
+                }}
+              >
+                <View style={{ flexDirection: "column" }}>
+                  <Text style={{ fontSize: 17, fontWeight: "500" }}>
+                    TOTAL LOAN OBLIGATION
+                  </Text>
+                  <Text style={{ fontSize: 17, fontWeight: "500" }}>UGX:</Text>
+                  <Text style={{ fontSize: 28, fontWeight: "900" }}>
+                    1,000,000
+                  </Text>
+                </View>
+              </View>
             </View>
-        
+            <RunningloanWrapper/>
+          </View>
         </SafeAreaView>
       </ImageBackground>
     </>

@@ -28,15 +28,19 @@ const Saccos = () => {
               >
                 <View style={{ flexDirection: "column" }}>
                   <Text style={{ fontSize: 17, fontWeight: "500" }}>
-                    TOTAL SAVINGS UGX:
+                    TOTAL SAVINGS
                   </Text>
+                  <Text style={{ fontSize: 17, fontWeight: "500" }}>UGX:</Text>
                   <Text style={{ fontSize: 28, fontWeight: "900" }}>
                     1,000,000
                   </Text>
                 </View>
                 <View style={{ flexDirection: "column", marginLeft: 10 }}>
                   <Text style={{ fontSize: 17, fontWeight: "500" }}>
-                    TOTAL INTEREST EARNED:
+                    TOTAL INTEREST
+                  </Text>
+                  <Text style={{ fontSize: 17, fontWeight: "500" }}>
+                    EARNED:
                   </Text>
                   <Text
                     style={{ fontSize: 20, fontWeight: "900", color: "green" }}

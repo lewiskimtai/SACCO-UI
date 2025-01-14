@@ -70,7 +70,7 @@ const transactions = [
   // Add more transactions as needed
 ];
 
-const SaccoList = () => {
+const RecentsaccoTransactions = () => {
   return (
     <View style={styles.recenttransactionsWrapper}>
       <Text style={styles.header}>Recent Sacco Transactions</Text>
@@ -174,4 +174,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SaccoList;
+export default RecentsaccoTransactions;
