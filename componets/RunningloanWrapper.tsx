@@ -49,8 +49,22 @@ const RunningloanWrapper = () => {
             <View style={styles.saccoloanDetails}>
               <Text style={styles.sacconameText}>{item.saccoName}</Text>
               <View style={styles.dateInfo}>
-                <Text>Date:</Text>
-                <Text>{item.date}</Text>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    color: "gray",
+                  }}
+                >
+                  Date:
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    color: "gray",
+                  }}
+                >
+                  {item.date}
+                </Text>
               </View>
               <View style={styles.amountInfo}>
                 <Text>Loan Amount:</Text>
@@ -64,10 +78,10 @@ const RunningloanWrapper = () => {
                 <Text>Loan Period:</Text>
                 <Text>{item.loanPeriod} months</Text>
               </View>
-            </View>
-            <TouchableOpacity>
+              <TouchableOpacity>
                 <Text>Pay Loan</Text>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
       />
