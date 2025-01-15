@@ -49,37 +49,61 @@ const RunningloanWrapper = () => {
             <View style={styles.saccoloanDetails}>
               <Text style={styles.sacconameText}>{item.saccoName}</Text>
               <View style={styles.dateInfo}>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    color: "gray",
-                  }}
-                >
-                  Date:
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    color: "gray",
-                  }}
-                >
-                  {item.date}
-                </Text>
+                <View style={styles.saccodetailText}>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: "gray",
+                    }}
+                  >
+                    Date:
+                  </Text>
+                </View>
+                <View style={styles.saccodetailText}>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: "gray",
+                    }}
+                  >
+                    {item.date}
+                  </Text>
+                </View>
               </View>
               <View style={styles.amountInfo}>
-                <Text>Loan Amount:</Text>
-                <Text>UGX {item.loanAmount}</Text>
+                <View style={styles.saccodetailText}>
+                  <Text style={styles.loanamountText}>Loan Amount:</Text>
+                </View>
+                <View style={styles.saccodetailText}>
+                  <Text style={styles.loanamountText}>
+                    UGX {item.loanAmount}
+                  </Text>
+                </View>
               </View>
               <View style={styles.installmentamountInfo}>
-                <Text>Installment Amount:</Text>
-                <Text>UGX {item.installmentAmount}</Text>
+                <View style={styles.saccodetailText}>
+                  <Text style={styles.installmentamountText}>
+                    Installment Amount:
+                  </Text>
+                </View>
+                <View style={styles.saccodetailText}>
+                  <Text style={styles.installmentamountText}>
+                    UGX {item.installmentAmount}
+                  </Text>
+                </View>
               </View>
               <View style={styles.loanperioddateInfo}>
-                <Text>Loan Period:</Text>
-                <Text>{item.loanPeriod} months</Text>
+                <View style={styles.saccodetailText}>
+                  <Text style={styles.loanperiodText}>Loan Period:</Text>
+                </View>
+                <View style={styles.saccodetailText}>
+                  <Text style={styles.monthsText}>
+                    {item.loanPeriod} months
+                  </Text>
+                </View>
               </View>
-              <TouchableOpacity>
-                <Text>Pay Loan</Text>
+              <TouchableOpacity style={styles.payloanButton}>
+                <Text style={styles.payloanbuttonText}>Pay Loan</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -96,7 +120,7 @@ const styles = StyleSheet.create({
     height: 670,
     marginTop: 5,
     backgroundColor: Colors.white,
-    paddingHorizontal: 10,
+
     borderRadius: 10,
     shadowColor: Colors.black,
     shadowOffset: { width: 0, height: 5 },
@@ -105,25 +129,27 @@ const styles = StyleSheet.create({
     elevation: Platform.OS === "android" ? 5 : 0,
   },
   header: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold",
     paddingHorizontal: 10, // Added padding for better spacing
     marginBottom: 5, // Added margin for better separation
   },
   saccoLoan: {
     flexDirection: "row",
-    marginBottom: 10,
+    borderBottomWidth: 0.3,
+    borderColor: Colors.grey,
+    marginBottom: 5,
   },
   profilePicture: {
-    width: 50,
-    height: 50,
-    borderRadius: 10,
+    width: 80,
+    height: 80,
+    borderRadius: 20,
   },
   saccoloanDetails: {
     flexDirection: "column",
   },
   sacconameText: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
   },
   dateInfo: {
@@ -140,5 +166,47 @@ const styles = StyleSheet.create({
   },
   loanperioddateInfo: {
     flexDirection: "row",
+  },
+  saccodetailText: {
+    width: 130,
+  },
+  loanamountText: {
+    fontSize: 16,
+    color: Colors.grey,
+  },
+  loanperiodText: {
+    fontSize: 16,
+    color: Colors.grey,
+  },
+  monthsText: {
+    fontSize: 16,
+    color: Colors.grey,
+  },
+  installmentamountText: {
+    fontSize: 16,
+    color: Colors.grey,
+  },
+  payloanButton: {
+    width: 95,
+    marginLeft: 210,
+    marginBottom: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Colors.bluee,
+    borderWidth: 1,
+    borderColor: Colors.bluee,
+    paddingLeft: 2,
+    paddingVertical: 5,
+    borderRadius: 10,
+    shadowColor: Colors.black,
+    shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+    shadowRadius: 10, // Reduced shadowRadius
+    shadowOpacity: 0.3, // Reduced shadowOpacity
+    elevation: Platform.OS === "android" ? 5 : 0,
+  },
+  payloanbuttonText: {
+    fontSize: 20,
+    fontWeight: "900",
+    color: Colors.white,
   },
 });

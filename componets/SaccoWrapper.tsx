@@ -193,7 +193,7 @@ const SaccoWrapper = () => {
                     flexDirection: "row",
                   }}
                 >
-                  <View style={{ width: 190 }}>
+                  <View style={{ width: 175 }}>
                     <Text style={styles.savingAmount}>
                       Savings: UGX {item.saving}
                     </Text>
@@ -268,18 +268,19 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   profilePicture: {
-    width: 65,
-    height: 65,
+    width: 80,
+    height: 80,
     borderRadius: 25,
     marginRight: 10,
+    marginTop: 10
   },
   saccosInfo: {},
   saccosName: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
   },
   savingAmount: {
-    fontSize: 18,
+    fontSize: 16,
     color: Colors.grey,
   },
   interestEarned: {
