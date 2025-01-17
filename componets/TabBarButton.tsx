@@ -61,7 +61,7 @@ const TabBarButton = ({
   let IconComponent;
 
   switch (routeName) {
-    case "(sacco)":
+    case "saccos":
       IconComponent = FontAwesome;
       break;
     case "home":
@@ -86,7 +86,7 @@ const TabBarButton = ({
         {IconComponent && (
           <IconComponent
             name={
-              routeName === "(sacco)"
+              routeName === "saccos"
                 ? "group"
                 : routeName === "home"
                 ? "home"

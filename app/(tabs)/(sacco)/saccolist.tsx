@@ -11,10 +11,9 @@ import SaccoWrapper from "@/componets/SaccoWrapper";
 import Colors from "@/constants/Colors";
 import { StatusBar } from "expo-status-bar";
 
-const Saccos = () => {
+const SaccoList = () => {
   return (
-    <>
-      <StatusBar style="light" />
+    
       <ImageBackground source={SubtlePrism} style={styles.background}>
         <SafeAreaView style={styles.safeAreaView}>
           <View style={styles.container}>
@@ -59,7 +58,7 @@ const Saccos = () => {
           </View>
         </SafeAreaView>
       </ImageBackground>
-    </>
+  
   );
 };
 
@@ -92,4 +91,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Saccos;
+export default SaccoList;

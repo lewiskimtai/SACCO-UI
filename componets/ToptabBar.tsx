@@ -1,12 +1,8 @@
+import Colors from "@/constants/Colors";
+import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import Animated, {
-  interpolate,
-  useAnimatedStyle,
-} from "react-native-reanimated";
-
+import Animated, { interpolate, useAnimatedStyle } from "react-native-reanimated";
 
 export function TopTabBar({
   state,
@@ -20,12 +16,10 @@ export function TopTabBar({
   position: any;
 }) {
   return (
-    <View style={styles.container}>
-      {state.routes.map(
-        (
-          route: { key: React.Key | null | undefined; name: any },
-          index: any
-        ) => {
+    <>
+      <StatusBar style="dark" />
+      <View style={styles.container}>
+        {state.routes.slice(1).map((route: { key: React.Key | null | undefined; name: any }, index: any) => {
           const { options } = descriptors[route.key as string];
           const label =
             options.tabBarLabel !== undefined
@@ -34,7 +28,8 @@ export function TopTabBar({
               ? options.title
               : route.name;
 
-          const isFocused = state.index === index;
+          const isFocused = state.index === index + 1; // Adjust index for focus
+
           const onPress = () => {
             const event = navigation.emit({
               type: "tabPress",
@@ -53,7 +48,7 @@ export function TopTabBar({
             });
           };
 
-          const inputRange = state.routes.map((_: any, i: any) => i);
+          const inputRange = state.routes.slice(1).map((_: any, i: any) => i); // Adjust inputRange
           const opacity = interpolate(
             position.x,
             inputRange,
@@ -63,21 +58,24 @@ export function TopTabBar({
 
           return (
             <TouchableOpacity
-              key={route.key} // Add key for better performance
+              key={route.key}
               accessibilityRole="button"
               accessibilityState={isFocused ? { selected: true } : {}}
               accessibilityLabel={options.tabBarAccessibilityLabel}
               testID={options.tabBarTestID}
               onPress={onPress}
               onLongPress={onLongPress}
-              style={styles.tab}
+              style={[styles.tab, isFocused && styles.tabFocused]}
             >
-              <Animated.Text style={animatedStyles}>{label}</Animated.Text>
+              <Animated.Text style={[styles.text, isFocused && styles.textFocused]}>
+                {label}
+              </Animated.Text>
+              {isFocused && <View style={styles.tabBarUnderline} />}
             </TouchableOpacity>
           );
-        }
-      )}
-    </View>
+        })}
+      </View>
+    </>
   );
 }
 
@@ -86,10 +84,29 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around", // Center tabs horizontally
     padding: 10,
+    backgroundColor: "#f0f0f0", // Add background color
+    marginTop: 50,
   },
   tab: {
     flex: 1,
     alignItems: "center",
+    paddingVertical: 10, // Add padding
+  },
+  tabFocused: {
+    backgroundColor: "#e0e0e0", // Change background color on focus
+  },
+  text: {
+    fontSize: 16, // Increase font size here
+  },
+  textFocused: {
+    // Optional: Add styles for focused text (e.g., bold)
+  },
+  tabBarUnderline: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 2, // Adjust height of the line
+    backgroundColor: Colors.bluee, // Use your desired color from Colors
   },
 });
-

@@ -15,7 +15,7 @@ function Layout() {
   return (
     <Tabs tabBar={(props: JSX.IntrinsicAttributes & BottomTabBarProps) => <TabBar {...props} />}>
       <Tabs.Screen
-        name="(sacco)"
+        name="saccos"
         options={{
           headerShown: false,
           title: "Saccos",

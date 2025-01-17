@@ -1,9 +1,4 @@
-import {
-  View,
-  StyleSheet,
-  LayoutChangeEvent,
-  Platform,
-} from "react-native";
+import { View, StyleSheet, LayoutChangeEvent, Platform } from "react-native";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import TabBarButton from "./TabBarButton";
 import { useState } from "react";
@@ -16,7 +11,7 @@ import Colors from "@/constants/Colors";
 
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const [dimensions, setDimensions] = useState({ height: 20, width: 100 });
-  const buttonWidth = dimensions.width / state.routes.length;
+  const buttonWidth = dimensions.width / (state.routes.length - 1); // Adjust for one less item
 
   const onTabbarLayout = (e: LayoutChangeEvent) => {
     setDimensions({
@@ -35,20 +30,26 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 
   return (
     <View onLayout={onTabbarLayout} style={styles.tabbar}>
-      <Animated.View style={[animatedStyle, {
-        position: 'absolute',
-        backgroundColor: Colors.white,  /*'#723FEB',*/
-        borderRadius: 30,
-        marginHorizontal: 12,
-        height: dimensions.height - 15,
-        width: buttonWidth - 25
-      }]}/>
-      {state.routes.map((route, index) => {
+      <Animated.View
+        style={[
+          animatedStyle,
+          {
+            position: "absolute",
+            backgroundColor: Colors.white /*'#723FEB',*/,
+            borderRadius: 30,
+            marginHorizontal: 12,
+            height: dimensions.height - 15,
+            width: buttonWidth - 25,
+          },
+        ]}
+      />
+      {state.routes.slice(0, state.routes.length - 1).map((route, index) => {
+        // Slice last item
         const { options } = descriptors[route.key];
         const label =
-          typeof options.tabBarLabel === 'string'
+          typeof options.tabBarLabel === "string"
             ? options.tabBarLabel
-            : typeof options.title === 'string'
+            : typeof options.title === "string"
             ? options.title
             : route.name;
 
@@ -86,25 +87,6 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
             color={isFocused ? "#FFF" : "#222"}
             label={label}
           />
-          /** 
-          <TouchableOpacity
-            key={route.name}
-            accessibilityRole="button"
-            accessibilityState={isFocused ? { selected: true } : {}}
-            accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarTestID}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            style={styles.tabbarItem}
-          >
-            {icon [route.name] ({
-                color: isFocused ? "#673ab7" : "#222"
-            })}
-            <Text style={{ color: isFocused ? "#673ab7" : "#222" }}>
-              {label}
-            </Text>
-          </TouchableOpacity>
-          */
         );
       })}
     </View>
@@ -137,5 +119,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 5
   }
-     */
+  */
 });
