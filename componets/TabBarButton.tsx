@@ -1,6 +1,5 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { GestureResponderEvent, Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useEffect } from "react";
-import { icon } from "@/constants/icon";
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -8,6 +7,14 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import Colors from "@/constants/Colors";
+import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons"; // Import correctly
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+
+interface IconProps {
+  size?: number;
+  color?: string;
+}
 
 const TabBarButton = ({
   onPress,
@@ -17,8 +24,8 @@ const TabBarButton = ({
   color,
   label,
 }: {
-  onPress: Function;
-  onLongPress: Function;
+  onPress: (event: GestureResponderEvent) => void;
+  onLongPress: (event: GestureResponderEvent) => void;
   isFocused: boolean;
   routeName: string;
   color: string;
@@ -38,12 +45,8 @@ const TabBarButton = ({
     const top = interpolate(scale.value, [0, 1], [0, 9]);
 
     return {
-      transform: [
-        {
-          scale: scaleValue,
-        },
-      ],
-      top
+      transform: [{ scale: scaleValue }],
+      top,
     };
   });
 
@@ -54,6 +57,25 @@ const TabBarButton = ({
       opacity,
     };
   });
+
+  let IconComponent;
+
+  switch (routeName) {
+    case "(sacco)":
+      IconComponent = FontAwesome;
+      break;
+    case "home":
+      IconComponent = Ionicons;
+      break;
+    case "loans":
+      IconComponent = FontAwesome6;
+      break;
+    default:
+      // Handle unexpected route names (e.g., log an error, display a default icon)
+      IconComponent = null;
+      break;
+  }
+
   return (
     <Pressable
       onPress={onPress}
@@ -61,9 +83,21 @@ const TabBarButton = ({
       style={styles.tabbarItem}
     >
       <Animated.View style={animatedIconStyle}>
-        {icon[routeName]({
-          color: isFocused ? Colors.bluee : "#222",
-        })}
+        {IconComponent && (
+          <IconComponent
+            name={
+              routeName === "(sacco)"
+                ? "group"
+                : routeName === "home"
+                ? "home"
+                : routeName === "loans"
+                ? "hand-holding-dollar"
+                : null
+            }
+            size={24}
+            color={isFocused ? Colors.bluee : "#222"}
+          />
+        )}
       </Animated.View>
       <Animated.Text
         style={[
