@@ -84,12 +84,11 @@ const SignIn = () => {
             <TouchableOpacity>
               <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
             </TouchableOpacity>
-
-            <TouchableOpacity style={styles.loginButton}>
-              <Link href={"/(tabs)/home"}>
+            <Link href={"/(tabs)/home"} asChild>
+              <TouchableOpacity style={styles.loginButton}>
                 <Text style={styles.loginText}>Login</Text>
-              </Link>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </Link>
             <View style={styles.footerContainer}>
               <Text style={styles.accountText}>Dont have an account?</Text>
               <Link href={"/signup"}>
@@ -173,7 +172,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     textAlign: "center",
-    padding: 10,
+    padding: 5,
   },
   footerContainer: {
     flexDirection: "row",

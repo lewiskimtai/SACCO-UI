@@ -32,37 +32,37 @@ const Index = () => {
           </View>
 
           <View style={styles.signinAndSignupContainer}>
-            <TouchableOpacity
-              onPress={handleSignInPress}
-              style={[
-                styles.signinButton,
-                {
-                  backgroundColor: isSignInActive
-                    ? Colors.bluee
-                    : "transparent",
-                },
-              ]}
-            >
-              <Link href={"/signin"}>
+            <Link href={"/signin"} asChild>
+              <TouchableOpacity
+                onPress={handleSignInPress}
+                style={[
+                  styles.signinButton,
+                  {
+                    backgroundColor: isSignInActive
+                      ? Colors.bluee
+                      : "transparent",
+                  },
+                ]}
+              >
                 <Text style={styles.text}>Sign In</Text>
-              </Link>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </Link>
 
-            <TouchableOpacity
-              onPress={handleSignUpPress}
-              style={[
-                styles.signupButton,
-                {
-                  backgroundColor: !isSignInActive
-                    ? Colors.bluee
-                    : "transparent",
-                },
-              ]}
-            >
-              <Link href={"/signup"}>
+            <Link href={"/signup"} asChild>
+              <TouchableOpacity
+                onPress={handleSignUpPress}
+                style={[
+                  styles.signupButton,
+                  {
+                    backgroundColor: !isSignInActive
+                      ? Colors.bluee
+                      : "transparent",
+                  },
+                ]}
+              >
                 <Text style={styles.text}>Sign UP</Text>
-              </Link>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </Link>
           </View>
         </View>
       </SafeAreaView>
@@ -84,25 +84,23 @@ const styles = StyleSheet.create({
   },
   welcomemessageContainer: {
     marginVertical: 80,
-    
   },
   welcomeText: {
     fontSize: 50,
     color: Colors.white,
   },
   signinAndSignupContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 10,
+    
+    paddingHorizontal: 50,
     height: 100,
     marginVertical: 550,
     flexDirection: "row",
+    justifyContent:"space-between"
   },
   text: {
-    fontSize: 30,
+    fontSize: 40,
     color: Colors.tintColor,
     fontWeight: "900",
-
   },
 
   signinButton: {
@@ -111,8 +109,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderTopRightRadius: 30,
-    
+    borderWidth: 1,
     borderColor: Colors.bluee,
+  
   },
   signupButton: {
     height: 90,
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderTopLeftRadius: 30,
-    
+    borderWidth: 5,
     borderColor: Colors.bluee,
   },
 });
