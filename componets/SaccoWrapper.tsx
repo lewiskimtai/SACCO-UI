@@ -7,7 +7,6 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
 import Colors from "@/constants/Colors";
 import { Link } from "expo-router";
 
@@ -176,39 +175,39 @@ const SaccoWrapper = () => {
       <FlatList
         data={saccos}
         renderItem={({ item }) => (
-          <Link href={`/(tabs)/(sacco)/dashboard`} asChild>
-            <TouchableOpacity
-              key={item.name}
-              onPress={() => {
-                /* Handle Sacco press */
-              }}
-            >
-              <View style={styles.saccosItem}>
-                <Image
-                  source={item.profilePicture}
-                  style={styles.profilePicture}
-                />
-                <View style={styles.saccosInfo}>
-                  <Text style={styles.saccosName}>{item.name}</Text>
-                  <View
-                    style={{
-                      flexDirection: "row",
-                    }}
-                  >
-                    <View style={{ width: 175 }}>
-                      <Text style={styles.savingAmount}>
-                        Savings: UGX {item.saving}
-                      </Text>
-                    </View>
-                    <View>
-                      <Text style={styles.interestEarned}>
-                        Interest Earned: {item.interestEarned}
-                      </Text>
-                    </View>
+          <Link href={"/(tabs)/(sacco)/dashboard"} asChild>
+          <TouchableOpacity
+            key={item.name}
+            onPress={() => {
+              /* Handle Sacco press */
+            }}
+          >
+            <View style={styles.saccosItem}>
+              <Image
+                source={item.profilePicture}
+                style={styles.profilePicture}
+              />
+              <View style={styles.saccosInfo}>
+                <Text style={styles.saccosName}>{item.name}</Text>
+                <View
+                  style={{
+                    flexDirection: "row",
+                  }}
+                >
+                  <View style={{ width: 175 }}>
+                    <Text style={styles.savingAmount}>
+                      Savings: UGX {item.saving}
+                    </Text>
+                  </View>
+                  <View>
+                    <Text style={styles.interestEarned}>
+                      Interest Earned: {item.interestEarned}
+                    </Text>
                   </View>
                 </View>
               </View>
-            </TouchableOpacity>
+            </View>
+          </TouchableOpacity>
           </Link>
         )}
       />

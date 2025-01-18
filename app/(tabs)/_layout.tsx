@@ -1,6 +1,5 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { TabBar } from "@/componets/TabBar";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { JSX } from "react/jsx-runtime";
@@ -13,15 +12,25 @@ import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 function Layout() {
 
   return (
-    <Tabs tabBar={(props: JSX.IntrinsicAttributes & BottomTabBarProps) => <TabBar {...props} />}>
+    <Tabs
+      tabBar={(props: JSX.IntrinsicAttributes & BottomTabBarProps) => (
+        <TabBar {...props} />
+      )}
+    >
       <Tabs.Screen
         name="saccos"
         options={{
           headerShown: false,
           title: "Saccos",
-          tabBarIcon: ({ color, size, focused }) => (
-            <FontAwesome name="group" size={24} color={color} />
-          ),
+          tabBarIcon: ({
+            color,
+            size,
+            focused,
+          }: {
+            color: string;
+            size: number;
+            focused: boolean;
+          }) => <FontAwesome name="group" size={24} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -29,9 +38,15 @@ function Layout() {
         options={{
           headerShown: false,
           title: "Home",
-          tabBarIcon: ({ color, size, focused }) => (
-            <Ionicons name="home" size={35} color={color} />
-          ),
+          tabBarIcon: ({
+            color,
+            size,
+            focused,
+          }: {
+            color: string;
+            size: number;
+            focused: boolean;
+          }) => <Ionicons name="home" size={35} color={color} />,
         }}
       />
       <Tabs.Screen
@@ -39,13 +54,39 @@ function Layout() {
         options={{
           headerShown: false,
           title: "Loans",
-          tabBarIcon: ({ color, size, focused }) => (
+          tabBarIcon: ({
+            color,
+            size,
+            focused,
+          }: {
+            color: string;
+            size: number;
+            focused: boolean;
+          }) => (
+            <FontAwesome6 name="hand-holding-dollar" size={35} color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="(sacco)"
+        options={{
+          headerShown: false,
+          title: "saccolist",
+          tabBarIcon: ({
+            color,
+            size,
+            focused,
+          }: {
+            color: string;
+            size: number;
+            focused: boolean;
+          }) => (
             <FontAwesome6 name="hand-holding-dollar" size={35} color={color} />
           ),
         }}
       />
     </Tabs>
-  
   );
 }
 
