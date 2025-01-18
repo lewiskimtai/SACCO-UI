@@ -1,14 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { SubtlePrism } from "@/constants/Icons";
+import { StatusBar } from "expo-status-bar";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 
 const SaccoChat = () => {
   return (
-    <View>
-      <Text>SaccoChat</Text>
-    </View>
-  )
-}
+    <>
+      <StatusBar style="dark" />
+      <ImageBackground
+        source={SubtlePrism}
+        style={styles.background}
+      ></ImageBackground>
+    </>
+  );
+};
 
-export default SaccoChat
+export default SaccoChat;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: "center",
+  },
+});

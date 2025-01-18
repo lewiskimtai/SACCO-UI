@@ -219,7 +219,7 @@ export default SaccoWrapper;
 
 const styles = StyleSheet.create({
   saccoWrapper: {
-    height: 670,
+    height: 765,
     marginTop: 5,
     backgroundColor: Colors.white,
     borderWidth: 1,

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   View,
   Text,
@@ -108,7 +107,7 @@ const RecentsaccoTransactions = () => {
 
 const styles = StyleSheet.create({
   recenttransactionsWrapper: {
-    height: 240,
+    height: 290,
     marginTop: 5,
     backgroundColor: Colors.white,
     borderWidth: 1,

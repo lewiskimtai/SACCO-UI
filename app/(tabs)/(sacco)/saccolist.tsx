@@ -14,8 +14,10 @@ import { StatusBar } from "expo-status-bar";
 const SaccoList = () => {
   return (
     
+    <>
+      <StatusBar style="dark" />
       <ImageBackground source={SubtlePrism} style={styles.background}>
-        <SafeAreaView style={styles.safeAreaView}>
+        
           <View style={styles.container}>
             <View style={styles.headerWrapper}>
               <View
@@ -56,9 +58,8 @@ const SaccoList = () => {
             </View>
             <SaccoWrapper />
           </View>
-        </SafeAreaView>
       </ImageBackground>
-  
+  </>
   );
 };
 
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     resizeMode: "center",
   },
   safeAreaView: {
-    flex: 1,
+    
   },
   container: {
     flex: 1,

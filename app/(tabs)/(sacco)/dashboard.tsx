@@ -1,14 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { SubtlePrism } from "@/constants/Icons";
+import { StatusBar } from "expo-status-bar";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 
 const Dashboard = () => {
   return (
-    <View>
-      <Text>Dashboard</Text>
-    </View>
-  )
-}
+    <>
+      <StatusBar style="dark" />
+      <ImageBackground
+        source={SubtlePrism}
+        style={styles.background}
+      ></ImageBackground>
+    </>
+  );
+};
 
-export default Dashboard
+export default Dashboard;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    resizeMode: "center",
+  },
+});

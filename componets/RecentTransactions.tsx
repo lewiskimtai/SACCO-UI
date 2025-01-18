@@ -1,5 +1,4 @@
 import Colors from "@/constants/Colors";
-import React from "react";
 import { View, Text, StyleSheet, Platform, ScrollView } from "react-native";
 
 const RecentTransactions = () => {
@@ -118,7 +117,7 @@ const RecentTransactions = () => {
 
 const styles = StyleSheet.create({
   recenttransactionsWrapper: {
-    height: 240,
+    height: 285,
     marginTop: 5,
     backgroundColor: Colors.white,
     borderWidth: 1,

@@ -6,11 +6,11 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import RecentTransactions from "@/componets/RecentTransactions";
-import SaccoList from "@/componets/RecentsaccoTransactions";
 import { SubtlePrism } from "@/constants/Icons";
 import HeaderWrapper from "@/componets/HeaderWrapper";
 import WalletWrapper from "@/componets/WalletWrapper";
 import DepositandWithdrawButton from "@/componets/DepositandWithdrawButton";
+import RecentsaccoTransactions from "@/componets/RecentsaccoTransactions";
 
 const Home = () => {
   return (
@@ -25,7 +25,7 @@ const Home = () => {
               <DepositandWithdrawButton />
             </View>
             <RecentTransactions />
-            <SaccoList />
+            <RecentsaccoTransactions />
           </View>
         </SafeAreaView>
       </ImageBackground>
