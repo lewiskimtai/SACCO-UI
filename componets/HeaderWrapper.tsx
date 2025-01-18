@@ -1,5 +1,4 @@
 import { Platform, StyleSheet, Text, Image, View } from "react-native";
-import React from 'react'
 import Colors from '@/constants/Colors';
 import Crbgraph from './Crbgraph';
 

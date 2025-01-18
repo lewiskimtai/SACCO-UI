@@ -6,6 +6,7 @@ import Animated, {
   useAnimatedStyle,
 } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
+import SaccoHeader from "./SaccoHeader";
 
 export function TopTabBar({
   state,
@@ -20,75 +21,78 @@ export function TopTabBar({
 }) {
   return (
     <>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <SafeAreaView style={styles.safeAreaView}>
-        <View style={styles.container}>
-          {state.routes
-            .slice(1)
-            .map(
-              (
-                route: { key: React.Key | null | undefined; name: any },
-                index: any
-              ) => {
-                const { options } = descriptors[route.key as string];
-                const label =
-                  options.tabBarLabel !== undefined
-                    ? options.tabBarLabel
-                    : options.title !== undefined
-                    ? options.title
-                    : route.name;
+        <View style={{  }}>
+          <SaccoHeader />
+          <View style={styles.container}>
+            {state.routes
+              .slice(1)
+              .map(
+                (
+                  route: { key: React.Key | null | undefined; name: any },
+                  index: any
+                ) => {
+                  const { options } = descriptors[route.key as string];
+                  const label =
+                    options.tabBarLabel !== undefined
+                      ? options.tabBarLabel
+                      : options.title !== undefined
+                      ? options.title
+                      : route.name;
 
-                const isFocused = state.index === index + 1; // Adjust index for focus
+                  const isFocused = state.index === index + 1; // Adjust index for focus
 
-                const onPress = () => {
-                  const event = navigation.emit({
-                    type: "tabPress",
-                    target: route.key,
-                  });
+                  const onPress = () => {
+                    const event = navigation.emit({
+                      type: "tabPress",
+                      target: route.key,
+                    });
 
-                  if (!isFocused && !event.defaultPrevented) {
-                    navigation.navigate(route.name);
-                  }
-                };
+                    if (!isFocused && !event.defaultPrevented) {
+                      navigation.navigate(route.name);
+                    }
+                  };
 
-                const onLongPress = () => {
-                  navigation.emit({
-                    type: "tabLongPress",
-                    target: route.key,
-                  });
-                };
+                  const onLongPress = () => {
+                    navigation.emit({
+                      type: "tabLongPress",
+                      target: route.key,
+                    });
+                  };
 
-                const inputRange = state.routes
-                  .slice(1)
-                  .map((_: any, i: any) => i); // Adjust inputRange
-                const opacity = interpolate(
-                  position.x,
-                  inputRange,
-                  inputRange.map((i: any) => (i === index ? 1 : 0))
-                );
-                const animatedStyles = useAnimatedStyle(() => ({ opacity }));
+                  const inputRange = state.routes
+                    .slice(1)
+                    .map((_: any, i: any) => i); // Adjust inputRange
+                  const opacity = interpolate(
+                    position.x,
+                    inputRange,
+                    inputRange.map((i: any) => (i === index ? 1 : 0))
+                  );
+                  const animatedStyles = useAnimatedStyle(() => ({ opacity }));
 
-                return (
-                  <TouchableOpacity
-                    key={route.key}
-                    accessibilityRole="button"
-                    accessibilityState={isFocused ? { selected: true } : {}}
-                    accessibilityLabel={options.tabBarAccessibilityLabel}
-                    testID={options.tabBarTestID}
-                    onPress={onPress}
-                    onLongPress={onLongPress}
-                    style={[styles.tab, isFocused && styles.tabFocused]}
-                  >
-                    <Animated.Text
-                      style={[styles.text, isFocused && styles.textFocused]}
+                  return (
+                    <TouchableOpacity
+                      key={route.key}
+                      accessibilityRole="button"
+                      accessibilityState={isFocused ? { selected: true } : {}}
+                      accessibilityLabel={options.tabBarAccessibilityLabel}
+                      testID={options.tabBarTestID}
+                      onPress={onPress}
+                      onLongPress={onLongPress}
+                      style={[styles.tab, isFocused && styles.tabFocused]}
                     >
-                      {label}
-                    </Animated.Text>
-                    {isFocused && <View style={styles.tabBarUnderline} />}
-                  </TouchableOpacity>
-                );
-              }
-            )}
+                      <Animated.Text
+                        style={[styles.text, isFocused && styles.textFocused]}
+                      >
+                        {label}
+                      </Animated.Text>
+                      {isFocused && <View style={styles.tabBarUnderline} />}
+                    </TouchableOpacity>
+                  );
+                }
+              )}
+          </View>
         </View>
       </SafeAreaView>
     </>
@@ -101,6 +105,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-around", // Center tabs horizontally
 
     backgroundColor: "#f0f0f0", // Add background color
+  
+  
   },
   safeAreaView: {},
   tab: {
