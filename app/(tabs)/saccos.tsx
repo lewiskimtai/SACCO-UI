@@ -1,16 +1,13 @@
 import {
   StyleSheet,
   ImageBackground,
-  Text,
   View,
-  Platform,
 } from "react-native";
 import { SubtlePrism } from "@/constants/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SaccoWrapper from "@/componets/SaccoWrapper";
-import Colors from "@/constants/Colors";
 import { StatusBar } from "expo-status-bar";
-import SaccoHeader from "@/componets/SaccoHeader";
+import SaccoListHeader from "@/componets/SaccoListHeader";
 
 const Saccos = () => {
   return (
@@ -19,7 +16,7 @@ const Saccos = () => {
       <ImageBackground source={SubtlePrism} style={styles.background}>
         <SafeAreaView style={styles.safeAreaView}>
           <View style={styles.container}>
-            <SaccoHeader />
+            <SaccoListHeader />
             <SaccoWrapper />
           </View>
         </SafeAreaView>

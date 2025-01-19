@@ -15,7 +15,6 @@ function TopTabBarLayout() {
       <Tab.Navigator
         tabBar={(props) => <TopTabBar {...props} />}
         initialRouteName="Dashboard"
-        
       >
         <Tab.Screen name="Saccolist" component={SaccoList} />
         <Tab.Screen name="Dashboard" component={Dashboard} />

@@ -9,8 +9,8 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import React, { useState } from "react";
 import Colors from "@/constants/Colors";
+import { useState } from "react";
 
 const DepositandWithdrawButton = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);

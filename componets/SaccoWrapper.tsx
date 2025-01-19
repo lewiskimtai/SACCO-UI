@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Colors from "@/constants/Colors";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const saccos = [
   {
@@ -175,11 +175,11 @@ const SaccoWrapper = () => {
       <FlatList
         data={saccos}
         renderItem={({ item }) => (
-          <Link href={"/(tabs)/(sacco)/dashboard"} asChild>
+          
           <TouchableOpacity
             key={item.name}
             onPress={() => {
-              /* Handle Sacco press */
+              router.push("/(tabs)/(sacco)/dashboard");
             }}
           >
             <View style={styles.saccosItem}>
@@ -208,7 +208,7 @@ const SaccoWrapper = () => {
               </View>
             </View>
           </TouchableOpacity>
-          </Link>
+      
         )}
       />
     </View>

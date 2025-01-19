@@ -1,7 +1,23 @@
-import { Platform, StyleSheet, Text, View } from "react-native";
+import {
+  Modal,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  TouchableWithoutFeedback,
+} from "react-native";
 import Colors from "@/constants/Colors";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { useState } from "react";
+import { Link } from "expo-router";
 
 export default function SaccoHeader() {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalVisible(!isModalVisible);
+  };
   return (
     <View style={styles.headerWrapper}>
       <View
@@ -16,7 +32,7 @@ export default function SaccoHeader() {
           <Text style={{ fontSize: 17, fontWeight: "500" }}>UGX:</Text>
           <Text style={{ fontSize: 28, fontWeight: "900" }}>1,000,000</Text>
         </View>
-        <View style={{ flexDirection: "column", marginLeft: 10 }}>
+        <View style={{ flexDirection: "column", marginLeft: 20 }}>
           <Text style={{ fontSize: 17, fontWeight: "500" }}>
             TOTAL INTEREST
           </Text>
@@ -27,6 +43,41 @@ export default function SaccoHeader() {
           <Text style={{ fontSize: 17, fontWeight: "900", color: "green" }}>
             80%
           </Text>
+        </View>
+        <View style={{ paddingTop: 30 }}>
+          <View style={styles.container}>
+            <TouchableOpacity onPress={toggleModal}>
+              <FontAwesome name="bars" size={24} color="black" />
+            </TouchableOpacity>
+
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={isModalVisible}
+              onRequestClose={toggleModal}
+            >
+              <TouchableWithoutFeedback onPress={toggleModal}>
+                <View style={styles.centeredView}>
+                  <View style={styles.modalView}>
+                    <Link href={"/documents"} asChild>
+                      <TouchableOpacity style={styles.modalTextButton}>
+                        <Text style={styles.modalText}>Request a Loan</Text>
+                      </TouchableOpacity>
+                    </Link>
+                    <TouchableOpacity style={styles.modalTextButton}>
+                      <Text style={styles.modalText}>Add new member</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.modalTextButton}>
+                      <Text style={styles.modalText}>Approvals </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.modalTextButton}>
+                      <Text style={styles.modalText}>Sacco Documents</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </TouchableWithoutFeedback>
+            </Modal>
+          </View>
         </View>
       </View>
     </View>
@@ -45,6 +96,40 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOpacity: 0.3,
     elevation: Platform.OS === "android" ? 5 : 0,
-    
+  },
+  container: {
+    flex: 1,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalView: {
+    width: 200,
+    marginBottom: 500,
+    flexDirection: "column",
+    marginLeft: 200,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 20,
+    gap: 10,
+    alignItems: "flex-start",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalText: {
+    fontSize: 20,
+    fontWeight: "900",
+  },
+  modalTextButton: {
+    width: 150,
+    paddingVertical: 10,
   },
 });
