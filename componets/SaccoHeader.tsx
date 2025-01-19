@@ -30,7 +30,7 @@ export default function SaccoHeader() {
         <View style={{ flexDirection: "column" }}>
           <Text style={{ fontSize: 17, fontWeight: "500" }}>TOTAL SAVINGS</Text>
           <Text style={{ fontSize: 17, fontWeight: "500" }}>UGX:</Text>
-          <Text style={{ fontSize: 28, fontWeight: "900" }}>1,000,000</Text>
+          <Text style={{ fontSize: 28, fontWeight: "900" }}>2,000,000</Text>
         </View>
         <View style={{ flexDirection: "column", marginLeft: 20 }}>
           <Text style={{ fontSize: 17, fontWeight: "500" }}>
