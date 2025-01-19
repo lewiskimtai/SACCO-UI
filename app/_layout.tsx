@@ -36,6 +36,9 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="signin" options={{ headerShown: false }} />
         <Stack.Screen name="signup" options={{ headerShown: false }} />
+        <Stack.Screen name="LoanRequest" options={{ headerShown: true }} />
+        <Stack.Screen name="AddNewMember" options={{ headerShown: true }} />
+        <Stack.Screen name="Approvals" options={{ headerShown: true }} />
         <Stack.Screen name="documents" options={{ headerShown: true }} />
       </Stack>
     </>

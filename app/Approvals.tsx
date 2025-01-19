@@ -2,7 +2,7 @@ import { SubtlePrism } from '@/constants/Icons'
 import { ImageBackground, StyleSheet, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-const Documents = () => {
+const Approvals = () => {
   return (
     
           <ImageBackground source={SubtlePrism} style={styles.background}>
@@ -14,7 +14,7 @@ const Documents = () => {
   )
 }
 
-export default Documents
+export default Approvals
 
 const styles = StyleSheet.create({
   background: {

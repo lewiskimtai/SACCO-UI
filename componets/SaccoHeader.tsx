@@ -59,20 +59,29 @@ export default function SaccoHeader() {
               <TouchableWithoutFeedback onPress={toggleModal}>
                 <View style={styles.centeredView}>
                   <View style={styles.modalView}>
-                    <Link href={"/documents"} asChild>
+                    <Link href={"/LoanRequest"} asChild>
                       <TouchableOpacity style={styles.modalTextButton}>
                         <Text style={styles.modalText}>Request a Loan</Text>
                       </TouchableOpacity>
                     </Link>
+                    
+                    <Link href={"/AddNewMember"} asChild>
                     <TouchableOpacity style={styles.modalTextButton}>
                       <Text style={styles.modalText}>Add new member</Text>
                     </TouchableOpacity>
+                    </Link>
+                    
+                    <Link href={"/Approvals"} asChild>
                     <TouchableOpacity style={styles.modalTextButton}>
                       <Text style={styles.modalText}>Approvals </Text>
                     </TouchableOpacity>
+                    </Link>
+                    
+                    <Link href={"/documents"} asChild>
                     <TouchableOpacity style={styles.modalTextButton}>
                       <Text style={styles.modalText}>Sacco Documents</Text>
                     </TouchableOpacity>
+                    </Link>
                   </View>
                 </View>
               </TouchableWithoutFeedback>
