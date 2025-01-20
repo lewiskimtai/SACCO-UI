@@ -5,12 +5,12 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import RecentTransactions from "@/componets/RecentTransactions";
+import RecentTransactions from "@/componets/home/RecentTransactions";
 import { SubtlePrism } from "@/constants/Icons";
-import HeaderWrapper from "@/componets/HeaderWrapper";
-import WalletWrapper from "@/componets/WalletWrapper";
-import DepositandWithdrawButton from "@/componets/DepositandWithdrawButton";
-import RecentsaccoTransactions from "@/componets/RecentsaccoTransactions";
+import HeaderWrapper from "@/componets/home/HeaderWrapper";
+import WalletWrapper from "@/componets/home/WalletWrapper";
+import DepositandWithdrawButton from "@/componets/home/DepositandWithdrawButton";
+import RecentsaccoTransactions from "@/componets/home/RecentsaccoTransactions";
 
 const Home = () => {
   return (

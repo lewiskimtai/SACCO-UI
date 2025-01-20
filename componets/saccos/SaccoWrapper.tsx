@@ -234,12 +234,12 @@ const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 10,
     alignItems: "center",
+    justifyContent: "space-between",
     flexDirection: "row",
     paddingVertical: 5,
   },
   saccoButtons: {
     flexDirection: "row",
-    marginLeft: 70,
   },
   saccoButton: {
     width: 95,

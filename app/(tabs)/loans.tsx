@@ -3,7 +3,7 @@ import { SubtlePrism } from "@/constants/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import Colors from "@/constants/Colors";
-import RunningloanWrapper from "@/componets/RunningloanWrapper";
+import RunningloanWrapper from "@/componets/loans/RunningloanWrapper";
 
 const Loans = () => {
   return (

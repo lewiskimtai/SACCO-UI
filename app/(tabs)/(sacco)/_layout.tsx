@@ -2,7 +2,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import Dashboard from "./dashboard";
 import Statement from "./statement";
 import { NavigationContainer } from "@react-navigation/native";
-import { TopTabBar } from "@/componets/ToptabBar";
+import { TopTabBar } from "@/componets/saccos/ToptabBar";
 import SaccoChat from "./discussion";
 import SaccoMembers from "./members";
 import SaccoList from "./saccolist";

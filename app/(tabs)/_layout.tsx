@@ -5,7 +5,7 @@ import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { JSX } from "react/jsx-runtime";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import HeaderWrapper from "@/componets/HeaderWrapper";
+import HeaderWrapper from "@/componets/home/HeaderWrapper";
 
 
 

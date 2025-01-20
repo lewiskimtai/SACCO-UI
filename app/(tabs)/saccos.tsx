@@ -5,9 +5,9 @@ import {
 } from "react-native";
 import { SubtlePrism } from "@/constants/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import SaccoWrapper from "@/componets/SaccoWrapper";
+import SaccoWrapper from "@/componets/saccos/SaccoWrapper";
 import { StatusBar } from "expo-status-bar";
-import SaccoListHeader from "@/componets/SaccoListHeader";
+import SaccoListHeader from "@/componets/saccos/SaccoListHeader";
 
 const Saccos = () => {
   return (

@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { SubtlePrism } from "@/constants/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import SaccoWrapper from "@/componets/SaccoWrapper";
+import SaccoWrapper from "@/componets/saccos/SaccoWrapper";
 import Colors from "@/constants/Colors";
 import { StatusBar } from "expo-status-bar";
 

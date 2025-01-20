@@ -8,7 +8,7 @@ const HeaderWrapper = () => {
       <View style={styles.headerView}>
         <View style={styles.profileHolder}>
           <Image
-            source={require("../assets/images/profilepic.jpg")}
+            source={require("../../assets/images/profilepic.jpg")}
             style={styles.profileImage}
           />
           <View style={{ marginLeft: 10 }}>

@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around", // Center tabs horizontally
 
-    backgroundColor: "#f0f0f0", // Add background color
+    backgroundColor: Colors.bluee
   
   
   },
@@ -115,14 +115,16 @@ const styles = StyleSheet.create({
     paddingVertical: 10, // Add padding
   },
   tabFocused: {
-    backgroundColor: "#e0e0e0", // Change background color on focus
+    backgroundColor: Colors.blue, // Change background color on focus
     fontWeight: "900",
   },
   text: {
-    fontSize: 20, // Increase font size here
+    fontSize: 18, // Increase font size here
+    color: Colors.white
   },
   textFocused: {
     fontWeight: "900",
+    fontSize: 21
   },
   tabBarUnderline: {
     position: "absolute",
@@ -130,6 +132,6 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     height: 2, // Adjust height of the line
-    backgroundColor: Colors.bluee, // Use your desired color from Colors
+    backgroundColor: Colors.white, // Use your desired color from Colors
   },
 });
