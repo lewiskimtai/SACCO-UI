@@ -7,7 +7,6 @@ import {
   View,
   TouchableWithoutFeedback,
 } from "react-native";
-import Colors from "@/constants/Colors";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useState } from "react";
 import { Link } from "expo-router";
@@ -20,31 +19,35 @@ export default function SaccoHeader() {
   };
   return (
     <View style={styles.headerWrapper}>
+      <View>
+        <Text style={{ fontSize: 28, fontWeight: "900" }}>SACCO NAME</Text>
+      </View>
+
       <View
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
-          marginRight: 10,
+          alignItems: "center",
         }}
       >
         <View style={{ flexDirection: "column" }}>
-          <Text style={{ fontSize: 17, fontWeight: "500" }}>TOTAL SAVINGS</Text>
-          <Text style={{ fontSize: 17, fontWeight: "500" }}>UGX:</Text>
+          <Text style={{ fontSize: 17, fontWeight: "500" }}>SAVINGS</Text>
           <Text style={{ fontSize: 28, fontWeight: "900" }}>2,000,000</Text>
         </View>
         <View style={{ flexDirection: "column", marginLeft: 20 }}>
           <Text style={{ fontSize: 17, fontWeight: "500" }}>
-            TOTAL INTEREST
+            INTEREST EARNED
           </Text>
-          <Text style={{ fontSize: 17, fontWeight: "500" }}>EARNED:</Text>
-          <Text style={{ fontSize: 20, fontWeight: "900", color: "green" }}>
-            200,000
-          </Text>
-          <Text style={{ fontSize: 17, fontWeight: "900", color: "green" }}>
-            80%
-          </Text>
+          <View style={{ flexDirection: "row", gap: 30, alignItems: "center" }}>
+            <Text style={{ fontSize: 20, fontWeight: "900", color: "green" }}>
+              200,000
+            </Text>
+            <Text style={{ fontSize: 17, fontWeight: "900", color: "green" }}>
+              80%
+            </Text>
+          </View>
         </View>
-        <View style={{ paddingTop: 30 }}>
+        <View style={{ paddingTop: 10 }}>
           <View style={styles.container}>
             <TouchableOpacity onPress={toggleModal}>
               <FontAwesome name="bars" size={24} color="black" />
@@ -64,23 +67,23 @@ export default function SaccoHeader() {
                         <Text style={styles.modalText}>Request a Loan</Text>
                       </TouchableOpacity>
                     </Link>
-                    
+
                     <Link href={"/AddNewMember"} asChild>
-                    <TouchableOpacity style={styles.modalTextButton}>
-                      <Text style={styles.modalText}>Add new member</Text>
-                    </TouchableOpacity>
+                      <TouchableOpacity style={styles.modalTextButton}>
+                        <Text style={styles.modalText}>Add new member</Text>
+                      </TouchableOpacity>
                     </Link>
-                    
+
                     <Link href={"/Approvals"} asChild>
-                    <TouchableOpacity style={styles.modalTextButton}>
-                      <Text style={styles.modalText}>Approvals </Text>
-                    </TouchableOpacity>
+                      <TouchableOpacity style={styles.modalTextButton}>
+                        <Text style={styles.modalText}>Approvals </Text>
+                      </TouchableOpacity>
                     </Link>
-                    
+
                     <Link href={"/documents"} asChild>
-                    <TouchableOpacity style={styles.modalTextButton}>
-                      <Text style={styles.modalText}>Sacco Documents</Text>
-                    </TouchableOpacity>
+                      <TouchableOpacity style={styles.modalTextButton}>
+                        <Text style={styles.modalText}>Sacco Documents</Text>
+                      </TouchableOpacity>
                     </Link>
                   </View>
                 </View>
@@ -97,14 +100,7 @@ const styles = StyleSheet.create({
   headerWrapper: {
     height: 100,
     justifyContent: "center",
-    backgroundColor: Colors.white,
     paddingHorizontal: 20,
-    borderRadius: 10,
-    shadowColor: Colors.black,
-    shadowOffset: { width: 0, height: 5 },
-    shadowRadius: 10,
-    shadowOpacity: 0.3,
-    elevation: Platform.OS === "android" ? 5 : 0,
   },
   container: {
     flex: 1,

@@ -43,7 +43,6 @@ const Crbgraph = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handRotation = seconds * 6; // 6 degrees per second
 
   return (
     <PieChart
