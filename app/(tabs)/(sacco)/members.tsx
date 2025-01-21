@@ -1,6 +1,5 @@
 import { SubtlePrism } from "@/constants/Icons";
 import { ImageBackground, StyleSheet, } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const SaccoMembers = () => {
   return (
@@ -8,9 +7,6 @@ const SaccoMembers = () => {
         source={SubtlePrism}
         style={styles.background}
       >
-        <SafeAreaView>
-          
-        </SafeAreaView>
       </ImageBackground>
   );
 };

@@ -8,9 +8,8 @@ const Statement = () => {
         source={SubtlePrism}
         style={styles.background}
       >
-        <SafeAreaView>
-          
-        </SafeAreaView>
+
+        
       </ImageBackground>
   );
 };
