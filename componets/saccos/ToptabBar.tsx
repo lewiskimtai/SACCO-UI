@@ -23,7 +23,7 @@ export function TopTabBar({
     <>
       <StatusBar style="light" />
       <SafeAreaView style={styles.safeAreaView}>
-        <View style={{ gap: 10 }}>
+        <View >
           <SaccoHeader />
           <View style={styles.container}>
             {state.routes
