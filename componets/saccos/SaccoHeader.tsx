@@ -19,7 +19,7 @@ export default function SaccoHeader() {
   };
   return (
     <View style={styles.headerWrapper}>
-      <View>
+      <View style={{ marginTop: 10}}>
         <Text style={{ fontSize: 28, fontWeight: "900" }}>SACCO NAME</Text>
       </View>
 
@@ -28,13 +28,14 @@ export default function SaccoHeader() {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
+          marginTop: 5
         }}
       >
         <View style={{ flexDirection: "column" }}>
           <Text style={{ fontSize: 17, fontWeight: "500" }}>SAVINGS</Text>
           <Text style={{ fontSize: 28, fontWeight: "900" }}>2,000,000</Text>
         </View>
-        <View style={{ flexDirection: "column", marginLeft: 20 }}>
+        <View style={{ flexDirection: "column"}}>
           <Text style={{ fontSize: 17, fontWeight: "500" }}>
             INTEREST EARNED
           </Text>
