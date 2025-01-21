@@ -21,7 +21,7 @@ export function TopTabBar({
 }) {
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
       <SafeAreaView style={styles.safeAreaView}>
         <View >
           <SaccoHeader />
