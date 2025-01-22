@@ -6,7 +6,6 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  Image,
   Platform,
 } from "react-native";
 import Colors from "@/constants/Colors";
