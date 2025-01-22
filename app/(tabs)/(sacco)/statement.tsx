@@ -14,147 +14,294 @@ import Colors from "@/constants/Colors";
 const transactions = [
   // Sample transaction data (replace with actual data)
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Deposit",
     type: "Credit",
     amount: 5000,
     date: "2023-01-10",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
     amount: 2000,
     date: "2023-01-12",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
     amount: 100,
     date: "2023-01-11",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
     amount: 2000,
     date: "2023-01-12",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
     amount: 100,
     date: "2023-01-11",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
     amount: 2000,
     date: "2023-01-12",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
     amount: 100,
     date: "2023-01-11",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Deposit",
     type: "Credit",
     amount: 5000,
     date: "2023-01-10",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
     amount: 2000,
     date: "2023-01-12",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
     amount: 100,
     date: "2023-01-11",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
     amount: 2000,
     date: "2023-01-12",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
     amount: 100,
     date: "2023-01-11",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
     amount: 2000,
     date: "2023-01-12",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
     amount: 100,
     date: "2023-01-11",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Deposit",
     type: "Credit",
     amount: 5000,
     date: "2023-01-10",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
     amount: 2000,
     date: "2023-01-12",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
     amount: 100,
     date: "2023-01-11",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
     amount: 2000,
     date: "2023-01-12",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
     amount: 100,
     date: "2023-01-11",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
     amount: 2000,
     date: "2023-01-12",
   },
   {
-    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Deposit",
+    type: "Credit",
+    amount: 5000,
+    date: "2023-01-10",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Deposit",
+    type: "Credit",
+    amount: 5000,
+    date: "2023-01-10",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Deposit",
+    type: "Credit",
+    amount: 5000,
+    date: "2023-01-10",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Deposit",
+    type: "Credit",
+    amount: 5000,
+    date: "2023-01-10",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
     description: "Interest Earned",
     type: "Credit",
     amount: 100,
@@ -172,10 +319,7 @@ const MysaccoStatement = () => {
             data={transactions}
             renderItem={({ item }) => (
               <View style={styles.transactionItem}>
-                <Image
-                  source={item.profilePicture}
-                  style={styles.profilePicture}
-                />
+                
                 <View style={styles.transactionInfo}>
                   <View style={styles.transactionDetails}>
                     <Text style={styles.date}>{item.date}</Text>
@@ -210,6 +354,7 @@ const styles = StyleSheet.create({
     resizeMode: "center",
   },
   recenttransactionsWrapper: {
+    paddingHorizontal: 10,
     height: 735,
     marginTop: 5,
     backgroundColor: Colors.white,
@@ -231,7 +376,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderBottomWidth: 0.3,
     borderColor: Colors.grey,
-    height: 45,
+    height: 30,
     marginRight: 10,
   },
   profilePicture: {
