@@ -107,7 +107,7 @@ const RecentsaccoTransactions = () => {
 
 const styles = StyleSheet.create({
   recenttransactionsWrapper: {
-    height: 290,
+    height: 243,
     marginTop: 5,
     backgroundColor: Colors.white,
     borderWidth: 1,

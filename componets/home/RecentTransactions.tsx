@@ -117,7 +117,7 @@ const RecentTransactions = () => {
 
 const styles = StyleSheet.create({
   recenttransactionsWrapper: {
-    height: 285,
+    height: 242,
     marginTop: 5,
     backgroundColor: Colors.white,
     borderWidth: 1,

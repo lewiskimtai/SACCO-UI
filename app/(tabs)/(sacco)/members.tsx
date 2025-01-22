@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   container: {
     
-        height: 735,
+        height: 638,
         marginTop: 5,
         backgroundColor: Colors.white,
         borderWidth: 1,

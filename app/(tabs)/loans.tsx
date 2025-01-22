@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   
     headerWrapper: {
-      height: 100,
+      height: 108,
       justifyContent: "center",
       backgroundColor: Colors.white,
       borderWidth: 1,
