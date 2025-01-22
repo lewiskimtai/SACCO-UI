@@ -14,7 +14,6 @@ import Colors from "@/constants/Colors";
 const transactions = [
   // Sample transaction data (replace with actual data)
   {
-    saccoName: "Koperasi Mwalimu Sacco",
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Deposit",
     type: "Credit",
@@ -22,7 +21,6 @@ const transactions = [
     date: "2023-01-10",
   },
   {
-    saccoName: "Saccos for Education Kenya",
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
@@ -30,7 +28,6 @@ const transactions = [
     date: "2023-01-12",
   },
   {
-    saccoName: "Hazina Sacco",
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
@@ -38,7 +35,6 @@ const transactions = [
     date: "2023-01-11",
   },
   {
-    saccoName: "Saccos for Education Kenya",
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
@@ -46,7 +42,6 @@ const transactions = [
     date: "2023-01-12",
   },
   {
-    saccoName: "Hazina Sacco",
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
@@ -54,7 +49,6 @@ const transactions = [
     date: "2023-01-11",
   },
   {
-    saccoName: "Saccos for Education Kenya",
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Withdrawal",
     type: "Debit",
@@ -62,7 +56,104 @@ const transactions = [
     date: "2023-01-12",
   },
   {
-    saccoName: "Hazina Sacco",
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Deposit",
+    type: "Credit",
+    amount: 5000,
+    date: "2023-01-10",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Deposit",
+    type: "Credit",
+    amount: 5000,
+    date: "2023-01-10",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Interest Earned",
+    type: "Credit",
+    amount: 100,
+    date: "2023-01-11",
+  },
+  {
+    profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
+    description: "Withdrawal",
+    type: "Debit",
+    amount: 2000,
+    date: "2023-01-12",
+  },
+  {
     profilePicture: require("@/assets/images/groupicon.png"), // Replace with image path
     description: "Interest Earned",
     type: "Credit",
@@ -86,7 +177,6 @@ const MysaccoStatement = () => {
                   style={styles.profilePicture}
                 />
                 <View style={styles.transactionInfo}>
-                  <Text style={styles.saccosName}>{item.saccoName}</Text>
                   <View style={styles.transactionDetails}>
                     <Text style={styles.date}>{item.date}</Text>
                     <Text style={styles.description}>{item.description}</Text>
@@ -141,7 +231,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderBottomWidth: 0.3,
     borderColor: Colors.grey,
-    height: 50,
+    height: 45,
     marginRight: 10,
   },
   profilePicture: {
