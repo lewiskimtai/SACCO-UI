@@ -79,13 +79,6 @@ export default function SaccoHeader() {
                         <Text style={styles.modalText}>Request a Loan</Text>
                       </TouchableOpacity>
                     </Link>
-
-                    <Link href={"/AddNewMember"} asChild>
-                      <TouchableOpacity style={styles.modalTextButton}>
-                        <Text style={styles.modalText}>Add new member</Text>
-                      </TouchableOpacity>
-                    </Link>
-
                     <Link href={"/Approvals"} asChild>
                       <TouchableOpacity style={styles.modalTextButton}>
                         <Text style={styles.modalText}>Approvals </Text>
@@ -113,25 +106,23 @@ const styles = StyleSheet.create({
     height: 80,
     justifyContent: "center",
     paddingHorizontal: 15,
-    marginVertical: 10
+    marginVertical: 10,
   },
-  container: {
-  },
+  container: {},
   centeredView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-end",
+    paddingRight: 5,
   },
   modalView: {
-    width: 200,
-    marginBottom: 500,
+    width: 150,
+    marginTop: 70,
     flexDirection: "column",
-    marginLeft: 200,
+
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 20,
-    gap: 10,
-    alignItems: "flex-start",
+    padding: 15,
+    gap: 20,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -142,11 +133,10 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   modalText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "900",
   },
   modalTextButton: {
     width: 150,
-    paddingVertical: 10,
   },
 });
