@@ -6,6 +6,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { SubtlePrism } from "@/constants/Icons"; // Assuming SubtlePrism is imported correctly
@@ -106,8 +107,16 @@ const SaccoMembers = () => {
 
   return (
     <ImageBackground source={SubtlePrism} style={styles.background}>
-      <View style={{ paddingHorizontal: 10}}>
+      <View style={{ paddingHorizontal: 10 }}>
         <View style={styles.container}>
+          <View style={styles.header}>
+            <Text style={{ fontSize: 25, fontWeight: "bold" }}>Sacco Members</Text>
+            <View style={styles.addmemberbuttonWrapper}>
+              <TouchableOpacity style={styles.addmemberButton}>
+                <Text style={styles.addmemberbuttonTexts}>Add New Member</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
           <FlatList
             data={members}
             keyExtractor={(item) => item.name}
@@ -138,6 +147,39 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.3,
         elevation: Platform.OS === "android" ? 5 : 0,
   },
+    header: {
+      paddingHorizontal: 10,
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexDirection: "row",
+      paddingVertical: 5,
+      borderBottomWidth: 0.5,
+      borderBottomColor: Colors.grey
+    },
+    addmemberbuttonWrapper: {
+      flexDirection: "row",
+    },
+    addmemberButton: {
+      width: 130,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: Colors.bluee,
+      borderWidth: 1,
+      borderColor: Colors.bluee,
+      paddingLeft: 2,
+      paddingVertical: 10,
+      borderRadius: 10,
+      shadowColor: Colors.black,
+      shadowOffset: { width: 0, height: 5 }, // Reduced shadowOffset for better visibility
+      shadowRadius: 10, // Reduced shadowRadius
+      shadowOpacity: 0.3, // Reduced shadowOpacity
+      elevation: Platform.OS === "android" ? 5 : 0,
+    },
+    addmemberbuttonTexts: {
+      fontSize: 16,
+      fontWeight: "900",
+      color: Colors.white,
+    },
   memberItem: {
     flexDirection: "row",
     alignItems: "center",
@@ -147,7 +189,7 @@ const styles = StyleSheet.create({
   },
   profilePicture: {
     width: 50,
-    height: 50,
+    height: 40,
     borderRadius: 25,
   },
   memberName: {
