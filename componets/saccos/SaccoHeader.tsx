@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
 
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 14,
     padding: 15,
     gap: 20,
     shadowColor: "#000",
